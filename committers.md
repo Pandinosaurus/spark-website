@@ -27,7 +27,7 @@ navigation:
 |Erik Erlandson|Red Hat|
 |Robert Evans|NVIDIA|
 |Wenchen Fan|Databricks|
-|Huaxin Gao|IBM|
+|Huaxin Gao|Apple|
 |Max Gekk|Databricks|
 |Joseph Gonzalez|UC Berkeley|
 |Thomas Graves|NVIDIA|
@@ -53,7 +53,7 @@ navigation:
 |Davies Liu|Juicedata|
 |Cheng Lian|Databricks|
 |Yanbo Liang|Facebook|
-|Jungtaek Lim|Cloudera|
+|Jungtaek Lim|Databricks|
 |Sean McNamara|Oracle|
 |Xiangrui Meng|Databricks|
 |Mridul Muralidharan|LinkedIn|
