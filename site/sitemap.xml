@@ -144,6 +144,290 @@
 </url>
 <!-- Auto-generate sitemap for rest of site content -->
 <url>
+  <loc>https://spark.apache.org/releases/spark-release-4-3-0.html</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://spark.apache.org/news/spark-4-3-0-released.html</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://spark.apache.org/releases/spark-release-4-2-1.html</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://spark.apache.org/releases/spark-release-4-1-4.html</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://spark.apache.org/releases/spark-release-4-0-5.html</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://spark.apache.org/news/spark-4-2-1-released.html</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://spark.apache.org/news/spark-4-1-4-released.html</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://spark.apache.org/news/spark-4-0-5-released.html</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://spark.apache.org/releases/spark-release-3-5-9.html</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://spark.apache.org/news/spark-3-5-9-released.html</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://spark.apache.org/releases/spark-release-4-1-3.html</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://spark.apache.org/releases/spark-release-4-0-4.html</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://spark.apache.org/news/spark-4-1-3-released.html</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://spark.apache.org/news/spark-4-0-4-released.html</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://spark.apache.org/releases/spark-release-4-2-0.html</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://spark.apache.org/news/spark-4-2-0-released.html</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://spark.apache.org/releases/spark-release-4-0-3.html</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://spark.apache.org/news/spark-4-0-3-released.html</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://spark.apache.org/releases/spark-release-4-1-2.html</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://spark.apache.org/news/spark-4-1-2-released.html</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://spark.apache.org/news/spark-4-2-0-preview5-released.html</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://spark.apache.org/news/spark-4-2-0-preview4-released.html</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://spark.apache.org/news/spark-4-2-0-preview3-released.html</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://spark.apache.org/news/spark-4-2-0-preview2-released.html</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://spark.apache.org/releases/spark-release-4-0-2.html</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://spark.apache.org/news/spark-4-0-2-released.html</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://spark.apache.org/releases/spark-release-3-5-8.html</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://spark.apache.org/news/spark-3-5-8-released.html</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://spark.apache.org/news/spark-4-2-0-preview1-released.html</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://spark.apache.org/releases/spark-release-4.1.1.html</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://spark.apache.org/news/spark-4-1-1-released.html</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://spark.apache.org/releases/spark-release-4.1.0.html</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://spark.apache.org/news/spark-4-1-0-released.html</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://spark.apache.org/news/spark-4-1-0-preview4-released.html</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://spark.apache.org/news/spark-4-1-0-preview3-released.html</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://spark.apache.org/news/spark-4-1-0-preview2-released.html</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://spark.apache.org/releases/spark-release-3-5-7.html</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://spark.apache.org/news/spark-3-5-7-released.html</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://spark.apache.org/releases/spark-release-4-0-1.html</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://spark.apache.org/news/spark-4-0-1-released.html</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://spark.apache.org/news/spark-4-1-0-preview1-released.html</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://spark.apache.org/news/spark-3-5-6-released.html</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://spark.apache.org/releases/spark-release-4-0-0.html</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://spark.apache.org/news/spark-4-0-0-released.html</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://spark.apache.org/releases/spark-release-3-5-6.html</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://spark.apache.org/releases/spark-release-3-5-5.html</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://spark.apache.org/news/spark-3-5-5-released.html</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://spark.apache.org/releases/spark-release-3-5-4.html</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://spark.apache.org/news/spark-3-5-4-released.html</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://spark.apache.org/releases/spark-release-3-4-4.html</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://spark.apache.org/news/spark-3-4-4-released.html</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://spark.apache.org/news/spark-4.0.0-preview2.html</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://spark.apache.org/releases/spark-release-3-5-3.html</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://spark.apache.org/news/spark-3-5-3-released.html</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://spark.apache.org/releases/spark-release-3-5-2.html</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://spark.apache.org/news/spark-3-5-2-released.html</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://spark.apache.org/news/spark-4.0.0-preview1.html</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://spark.apache.org/releases/spark-release-3-4-3.html</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://spark.apache.org/news/spark-3-4-3-released.html</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://spark.apache.org/releases/spark-release-3-5-1.html</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://spark.apache.org/news/spark-3-5-1-released.html</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://spark.apache.org/releases/spark-release-3-3-4.html</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://spark.apache.org/news/spark-3-3-4-released.html</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://spark.apache.org/releases/spark-release-3-4-2.html</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://spark.apache.org/news/spark-3-4-2-released.html</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://spark.apache.org/releases/spark-release-3-5-0.html</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://spark.apache.org/news/spark-3-5-0-released.html</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://spark.apache.org/releases/spark-release-3-3-3.html</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://spark.apache.org/news/spark-3-3-3-released.html</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://spark.apache.org/releases/spark-release-3-4-1.html</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://spark.apache.org/news/spark-3-4-1-released.html</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
   <loc>https://spark.apache.org/releases/spark-release-3-4-0.html</loc>
   <changefreq>weekly</changefreq>
 </url>
@@ -943,7 +1227,14 @@
   <loc>https://spark.apache.org/releases/spark-release-0-3.html</loc>
   <changefreq>weekly</changefreq>
 </url>
-
+<url>
+  <loc>https://spark.apache.org/</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://spark.apache.org/404.html</loc>
+  <changefreq>weekly</changefreq>
+</url>
 <url>
   <loc>https://spark.apache.org/committers.html</loc>
   <changefreq>weekly</changefreq>
@@ -981,6 +1272,10 @@
   <changefreq>weekly</changefreq>
 </url>
 <url>
+  <loc>https://spark.apache.org/graphx/</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
   <loc>https://spark.apache.org/history.html</loc>
   <changefreq>weekly</changefreq>
 </url>
@@ -989,7 +1284,7 @@
   <changefreq>weekly</changefreq>
 </url>
 <url>
-  <loc>https://spark.apache.org/graphx/</loc>
+  <loc>https://spark.apache.org/mailing-lists.html</loc>
   <changefreq>weekly</changefreq>
 </url>
 <url>
@@ -997,27 +1292,11 @@
   <changefreq>weekly</changefreq>
 </url>
 <url>
-  <loc>https://spark.apache.org/streaming/</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
   <loc>https://spark.apache.org/news/</loc>
   <changefreq>weekly</changefreq>
 </url>
 <url>
-  <loc>https://spark.apache.org/screencasts/</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>https://spark.apache.org/sql/</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>https://spark.apache.org/</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>https://spark.apache.org/mailing-lists.html</loc>
+  <loc>https://spark.apache.org/pandas-on-spark/</loc>
   <changefreq>weekly</changefreq>
 </url>
 <url>
@@ -1033,10 +1312,25 @@
   <changefreq>weekly</changefreq>
 </url>
 <url>
+  <loc>https://spark.apache.org/screencasts/</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
   <loc>https://spark.apache.org/security.html</loc>
   <changefreq>weekly</changefreq>
 </url>
-
+<url>
+  <loc>https://spark.apache.org/spark-connect/</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://spark.apache.org/sql/</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://spark.apache.org/streaming/</loc>
+  <changefreq>weekly</changefreq>
+</url>
 <url>
   <loc>https://spark.apache.org/third-party-projects.html</loc>
   <changefreq>weekly</changefreq>
@@ -1049,5 +1343,4 @@
   <loc>https://spark.apache.org/versioning-policy.html</loc>
   <changefreq>weekly</changefreq>
 </url>
-
 </urlset>

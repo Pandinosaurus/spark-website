@@ -1,11 +1,16 @@
 ---
 layout: global
 title: Security
-type: "page singular"
+type: "page"
 navigation:
   weight: 5
   show: true
 ---
+
+For information on what security properties to expect from Apache Spark
+and how to configure the various security features, see the
+[Spark Security](https://spark.apache.org/docs/latest/security.html)
+documentation.
 
 <h2>Reporting security issues</h2>
 
@@ -13,10 +18,140 @@ Apache Spark uses the standard process outlined by the [Apache Security Team](ht
 for reporting vulnerabilities. Note that vulnerabilities should not be publicly disclosed until the project has
 responded.
 
-To report a possible security vulnerability, please email `security@spark.apache.org`. This is a
-non-public list that will reach the Apache Security team, as well as the Spark PMC.
+Before submitting a report,
+confirm that the deployment under test is configured according to the [Spark Security](https://spark.apache.org/docs/latest/security.html) documentation:
+Spark's security features are opt-in,
+no deployment mode is secure by default,
+and reports against deployments that do not follow that guidance are out of scope.
+Review also the [Frequently Asked Questions](#faq) below,
+which document behavior that is by design
+and has been reported and rejected repeatedly.
+
+To report a possible security vulnerability,
+please email [`security@apache.org`](mailto:security@apache.org?subject=%5BSECURITY%5D%20Spark).
+This is the non-public list of the ASF Security Team, which will involve the Spark PMC.
+
+Please send one plain-text, unencrypted email per vulnerability,
+and describe the issue in the message body rather than as an image, HTML, or PDF attachment.
+
+<h2 id="faq">Frequently Asked Questions</h2>
+
+<h3>During a security analysis of Apache Spark, I noticed that Spark allows for remote code execution, is this an issue?</h3> 
+
+No, this is not considered an issue or a vulnerability in itself, because remote code execution is fundamental 
+to Apache Spark's design and purpose. Users can submit code in Spark jobs, 
+which will be executed unconditionally, without any attempts to limit what code can run. Starting other processes, 
+establishing network connections or accessing and modifying local files are possible. Anyone able to use a Spark
+cluster generally already has total control over the resources assigned to their Spark application by the resource
+manager (YARN, Kubernetes, etc.).
+
+Historically, we’ve received numerous code execution vulnerability reports, which we have rejected, as this is by design.
+Full access to the provisioned application resources is expected; it is _not_ expected that a user application can
+affect resources outside of their provisioned resources from the resource manager, however.
+
+We strongly discourage exposing Spark clusters (including UIs and submission endpoints) directly to the public 
+internet or untrusted networks. We recommend access within trusted networks (company intranets, 
+private cloud environments), using restrict access to the Spark cluster with robust authentication, 
+authorization, and network controls.
+
+<h3>I found an exploit, but it requires authentication to be disabled, is that a vulnerability?</h3>
+
+No. Without authentication, anyone who can reach a Spark cluster can already submit and execute arbitrary
+code on it by design (see above), so an exploit that only works with authentication disabled demonstrates
+no additional risk. Such a deployment is inherently insecure, and reports of this kind will be rejected.
+If you believe you have found an issue that works against a cluster with authentication enabled, please
+report it.
+
+<h3>I found an exploit, but it requires knowing the shared secret, is that a vulnerability?</h3>
+
+No. The shared secret (`spark.authenticate.secret`) _is_ the credential: anyone who knows it is already
+authenticated and can submit and execute arbitrary code on the cluster by design (see above). An exploit
+that requires knowing the secret demonstrates no access beyond what the secret already grants, and
+reports of this kind will be rejected. If you have found a way to bypass authentication or recover the
+secret without being given it (see, for example, [CVE-2021-38296](#CVE-2021-38296)), please report it.
+
+<h3 id="spark-connect-user-isolation">I found that one authenticated user can see or act on another user's session in the same driver (for example, via Spark Connect's `user_id` / `session_id`), is that a vulnerability?</h3>
+
+No. Spark does not support isolating users from each other within a single driver. Anyone who holds
+a driver's authentication credential has the same access as anyone else who holds it, including access
+to sessions, jobs, and data belonging to other holders of that same credential. This is the flip side of
+the point above: the credential is what grants access, not the identifiers layered on top of it.
+
+Open-source Spark Connect does not provide user isolation. The `user_id` and `session_id` fields in a
+Spark Connect request are supplied by the client and used to route a request to the right session; they
+are not an authorization boundary between different holders of the same authentication credential.
+A shared token answers "is this caller allowed to talk to this server at all," not "which of the server's
+users is this." If mutually-untrusting users need isolation from each other, give each one their own
+driver, and therefore their own credential, rather than sharing one endpoint and token across them.
+
+Some vendors offer their own isolation or a multi-tenant version of Spark Connect on top of
+open-source Spark. Issues with a vendor's isolation or multi-tenant version should be reported to
+that vendor. The same applies to other projects that add their own per-user isolation (for example,
+Apache Kyuubi): report those to the project.
+
+<h3>Is loading a machine learning model secure? Who is responsible for model security?</h3> 
+
+Loading an Apache Spark ML model is equivalent to loading and executing code within the Spark runtime.
+
+Spark ML models might contain serialized objects, custom transformers, user-defined expressions, and execution graphs. 
+During model loading, Spark deserializes these components, reconstructs the pipeline, and instantiates runtime objects. 
+This process can invoke executable logic on the Spark driver and executors. 
+Any model, but particularly that is compromised or intentionally created with malicious intent, 
+might execute arbitrary code, access sensitive data, or compromise cluster nodes.
+
+End users must treat Spark ML models with the same level of caution and security scrutiny as any third-party software. 
+This includes verifying the source, validating integrity, and applying appropriate isolation and security controls 
+before loading or deploying a model.
+
+<h3>Is loading a checkpoint secure?</h3>
+
+No, not from an untrusted source. This applies to any kind of Spark checkpoint -- RDD checkpoints,
+Spark Streaming checkpoints, and Structured Streaming checkpoints alike. A checkpoint directory holds
+serialized Spark internals: driver and operator state, and, depending on the job or query, serialized
+closures such as the functions in a DStream graph. Spark deserializes and reconstructs these when it recovers
+from a checkpoint. Recovering from a checkpoint you did not write, or whose storage location is writable
+by someone else, is equivalent to loading and executing arbitrary code within the Spark runtime, for the
+same reasons a Spark ML model is above.
+
+Checkpoints must be trusted: treat a checkpoint location the same way you would treat the credential
+that authenticates to the driver, restrict write access to it accordingly, and do not recover from a
+checkpoint whose provenance or integrity you cannot verify.
+
+<h3>I noticed the Spark server can cause the client to execute code, is that a problem?</h3>
+
+No, this is intentional. The Spark client _must_ trust the server since the results that come back can be of complex types whose deserialization can execute code. The final, smaller parts of a computation sometimes run on the client or driver (depending on the deployment model). This applies to Spark Connect as well: a client must trust the server it connects to.
 
 <h2>Known security issues</h2>
+
+<h3 id="CVE-2025-55039">CVE-2025-55039: Apache Spark: RPC encryption defaults to unauthenticated AES-CTR mode, enabling man-in-the-middle ciphertext modification attacks</h3>
+
+Severity: Moderate
+
+Vendor: The Apache Software Foundation
+
+Versions Affected:
+
+- Versions prior to 3.4.4, 3.5.2 and 4.0.0
+
+Description:
+
+Apache Spark versions before 4.0.0, 3.5.2 and 3.4.4 use an insecure default network encryption cipher for RPC communication between nodes.
+When spark.network.crypto.enabled is set to true (it is set to false by default), but spark.network.crypto.cipher is not explicitly configured, Spark defaults to AES in CTR mode (AES/CTR/NoPadding), which provides encryption without authentication.
+This vulnerability allows a man-in-the-middle attacker to modify encrypted RPC traffic undetected by flipping bits in ciphertext, potentially compromising heartbeat messages or application data and affecting the integrity of Spark workflows.
+
+Mitigation:
+
+- Either configure `spark.network.crypto.cipher` to "AES/GCM/NoPadding" to enable authenticated encryption or enable SSL encryption by setting both `spark.ssl.enabled` and `spark.ssl.rpc.enabled` to "true", which provides stronger transport security.
+
+Credit:
+
+- Holden Karau
+
+
+<h3 id="CVE-2023-32007">CVE-2023-32007: Apache Spark shell command injection vulnerability via Spark UI</h3>
+
+This CVE is only an update to [CVE-2022-33891](#CVE-2022-33891) to clarify that version 3.1.3 is also
+affected. It is otherwise not a new vulnerability. Note that Apache Spark 3.1.x is EOL now.
 
 <h3 id="CVE-2023-22946">CVE-2023-22946: Apache Spark proxy-user privilege escalation from malicious configuration class</h3>
 
@@ -81,7 +216,7 @@ Vendor: The Apache Software Foundation
 
 Versions Affected:
 
-- 3.1.3 and earlier
+- 3.1.3 and earlier (previously, this was marked as fixed in 3.1.3; this change is tracked as [CVE-2023-32007](#CVE-2023-32007))
 - 3.2.0 to 3.2.1
 
 Description:
@@ -239,7 +374,7 @@ Mitigation:
 
 Enable authentication on any Spark standalone cluster that is not otherwise secured
 from unwanted access, for example by network-level restrictions. Use `spark.authenticate`
-and related security properties described at https://spark.apache.org/docs/latest/security.html
+and related security properties described at [https://spark.apache.org/docs/latest/security.html](https://spark.apache.org/docs/latest/security.html)
 
 Credit:
 

@@ -1,0 +1,122 @@
+[
+    {
+        "name": "4.3.0",
+        "version": "4.3.0",
+        "url": "https://spark.apache.org/docs/4.3.0/api/python/"
+    },
+    {
+        "name": "4.2.1",
+        "version": "4.2.1",
+        "url": "https://spark.apache.org/docs/4.2.1/api/python/"
+    },
+    {
+        "name": "4.2.0",
+        "version": "4.2.0",
+        "url": "https://spark.apache.org/docs/4.2.0/api/python/"
+    },
+    {
+        "name": "4.1.4",
+        "version": "4.1.4",
+        "url": "https://spark.apache.org/docs/4.1.4/api/python/"
+    },
+    {
+        "name": "4.0.5",
+        "version": "4.0.5",
+        "url": "https://spark.apache.org/docs/4.0.5/api/python/"
+    },
+    {
+        "name": "4.0.1",
+        "version": "4.0.1",
+        "url": "https://spark.apache.org/docs/4.0.1/api/python/"
+    },
+    {
+        "name": "4.0.0",
+        "version": "4.0.0",
+        "url": "https://spark.apache.org/docs/4.0.0/api/python/"
+    },
+    {
+        "name": "3.5.7",
+        "version": "3.5.7",
+        "url": "https://spark.apache.org/docs/3.5.7/api/python/"
+    },
+    {
+        "name": "3.5.5",
+        "version": "3.5.5",
+        "url": "https://spark.apache.org/docs/3.5.5/api/python/"
+    },
+    {
+        "name": "3.5.4",
+        "version": "3.5.4",
+        "url": "https://spark.apache.org/docs/3.5.4/api/python/"
+    },
+    {
+        "name": "3.5.3",
+        "version": "3.5.3",
+        "url": "https://spark.apache.org/docs/3.5.3/api/python/"
+    },
+    {
+        "name": "3.5.2",
+        "version": "3.5.2",
+        "url": "https://archive.apache.org/dist/spark/docs/3.5.2/api/python/"
+    },
+    {
+        "name": "3.5.1",
+        "version": "3.5.1",
+        "url": "https://archive.apache.org/dist/spark/docs/3.5.1/api/python/"
+    },
+    {
+        "name": "3.5.0",
+        "version": "3.5.0",
+        "url": "https://archive.apache.org/dist/spark/docs/3.5.0/api/python/"
+    },
+    {
+        "name": "3.4.4",
+        "version": "3.4.4",
+        "url": "https://archive.apache.org/dist/spark/docs/3.4.4/api/python/"
+    },
+    {
+        "name": "3.4.3",
+        "version": "3.4.3",
+        "url": "https://archive.apache.org/dist/spark/docs/3.4.3/api/python/"
+    },
+    {
+        "name": "3.4.2",
+        "version": "3.4.2",
+        "url": "https://archive.apache.org/dist/spark/docs/3.4.2/api/python/"
+    },
+    {
+        "name": "3.4.1",
+        "version": "3.4.1",
+        "url": "https://archive.apache.org/dist/spark/docs/3.4.1/api/python/"
+    },
+    {
+        "name": "3.4.0",
+        "version": "3.4.0",
+        "url": "https://archive.apache.org/dist/spark/docs/3.4.0/api/python/"
+    },
+    {
+        "name": "3.3.4",
+        "version": "3.3.4",
+        "url": "https://archive.apache.org/dist/spark/docs/3.3.4/api/python/"
+    },
+    {
+        "name": "3.3.3",
+        "version": "3.3.3",
+        "url": "https://archive.apache.org/dist/spark/docs/3.3.3/api/python/"
+    },
+    {
+        "name": "3.3.2",
+        "version": "3.3.2",
+        "url": "https://archive.apache.org/dist/spark/docs/3.3.2/api/python/"
+    },
+    {
+        "name": "3.3.1",
+        "version": "3.3.1",
+        "url": "https://archive.apache.org/dist/spark/docs/3.3.1/api/python/"
+    },
+    {
+        "name": "3.3.0",
+        "version": "3.3.0",
+        "url": "https://archive.apache.org/dist/spark/docs/3.3.0/api/python/"
+    }
+]

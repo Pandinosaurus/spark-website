@@ -14,8 +14,7 @@
 
   
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link href="/css/bootstrap.min.css" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
@@ -23,6 +22,23 @@
   <!-- Code highlighter CSS -->
   <link href="/css/pygments-default.css" rel="stylesheet">
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+  <!-- Matomo -->
+  <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(["disableCookies"]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u="https://analytics.apache.org/";
+      _paq.push(['setTrackerUrl', u+'matomo.php']);
+      _paq.push(['setSiteId', '40']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
+  <!-- End Matomo Code -->
 </head>
 <body class="global">
 <nav class="navbar navbar-expand-lg navbar-dark p-0 px-4" style="background: #1D6890;">
@@ -46,7 +62,9 @@
         </a>
         <ul class="dropdown-menu" aria-labelledby="libraries">
           <li><a class="dropdown-item" href="/sql/">SQL and DataFrames</a></li>
+          <li><a class="dropdown-item" href="/spark-connect/">Spark Connect</a></li>
           <li><a class="dropdown-item" href="/streaming/">Spark Streaming</a></li>
+          <li><a class="dropdown-item" href="/pandas-on-spark/">pandas on Spark</a></li>
           <li><a class="dropdown-item" href="/mllib/">MLlib (machine learning)</a></li>
           <li><a class="dropdown-item" href="/graphx/">GraphX (graph)</a></li>
           <li>
@@ -98,6 +116,20 @@
           <li><a class="dropdown-item" href="/security.html">Security</a></li>
         </ul>
       </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="github" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          GitHub
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="github">
+          <li><a class="dropdown-item" href="https://github.com/apache/spark">spark</a></li>
+          <li><a class="dropdown-item" href="https://github.com/apache/spark-connect-go">spark-connect-go</a></li>
+          <li><a class="dropdown-item" href="https://github.com/apache/spark-connect-rust">spark-connect-rust</a></li>
+          <li><a class="dropdown-item" href="https://github.com/apache/spark-connect-swift">spark-connect-swift</a></li>
+          <li><a class="dropdown-item" href="https://github.com/apache/spark-docker">spark-docker</a></li>
+          <li><a class="dropdown-item" href="https://github.com/apache/spark-kubernetes-operator">spark-kubernetes-operator</a></li>
+          <li><a class="dropdown-item" href="https://github.com/apache/spark-website">spark-website</a></li>
+        </ul>
+      </li>
     </ul>
     <ul class="navbar-nav ml-auto">
       <li class="nav-item dropdown">
@@ -111,7 +143,6 @@
           <li><a class="dropdown-item"
                  href="https://www.apache.org/foundation/sponsorship.html">Sponsorship</a></li>
           <li><a class="dropdown-item" href="https://www.apache.org/foundation/thanks.html">Thanks</a></li>
-          <li><a class="dropdown-item" href="https://www.apache.org/security/">Security</a></li>
           <li><a class="dropdown-item" href="https://www.apache.org/events/current-event">Event</a></li>
         </ul>
       </li>
@@ -121,10 +152,11 @@
 
 <div class="container">
   <div class="row mt-4">
-    <div class="col-12 col-md-9">
-      <h2>Current committers</h2>
-
-<table>
+    <div class="col-12 col-md-9" id="content">
+      
+      <h1>Committers</h1>
+      
+      <table>
   <thead>
     <tr>
       <th>Name</th>
@@ -134,7 +166,7 @@
   <tbody>
     <tr>
       <td>Sameer Agarwal</td>
-      <td>Facebook</td>
+      <td>Deductive AI</td>
     </tr>
     <tr>
       <td>Michael Armbrust</td>
@@ -146,11 +178,19 @@
     </tr>
     <tr>
       <td>Ryan Blue</td>
-      <td>Netflix</td>
+      <td>Databricks</td>
+    </tr>
+    <tr>
+      <td>Uros Bojanic</td>
+      <td>Databricks</td>
     </tr>
     <tr>
       <td>Joseph Bradley</td>
       <td>Databricks</td>
+    </tr>
+    <tr>
+      <td>Nicholas Chammas</td>
+      <td>&#160;</td>
     </tr>
     <tr>
       <td>Matthew Cheah</td>
@@ -158,7 +198,7 @@
     </tr>
     <tr>
       <td>Felix Cheung</td>
-      <td>SafeGraph</td>
+      <td>NVIDIA</td>
     </tr>
     <tr>
       <td>Mosharaf Chowdhury</td>
@@ -178,7 +218,7 @@
     </tr>
     <tr>
       <td>Ankur Dave</td>
-      <td>UC Berkeley</td>
+      <td>Databricks</td>
     </tr>
     <tr>
       <td>Aaron Davidson</td>
@@ -186,7 +226,7 @@
     </tr>
     <tr>
       <td>Thomas Dudziak</td>
-      <td>Facebook</td>
+      <td>Meta</td>
     </tr>
     <tr>
       <td>Erik Erlandson</td>
@@ -202,11 +242,19 @@
     </tr>
     <tr>
       <td>Huaxin Gao</td>
-      <td>Apple</td>
+      <td>Snowflake</td>
+    </tr>
+    <tr>
+      <td>Tian Gao</td>
+      <td>Databricks</td>
     </tr>
     <tr>
       <td>Max Gekk</td>
       <td>Databricks</td>
+    </tr>
+    <tr>
+      <td>Jiaan Geng</td>
+      <td>NetEase</td>
     </tr>
     <tr>
       <td>Joseph Gonzalez</td>
@@ -215,6 +263,10 @@
     <tr>
       <td>Thomas Graves</td>
       <td>NVIDIA</td>
+    </tr>
+    <tr>
+      <td>Martin Grund</td>
+      <td>Databricks</td>
     </tr>
     <tr>
       <td>Stephen Haberman</td>
@@ -226,7 +278,11 @@
     </tr>
     <tr>
       <td>Seth Hendrickson</td>
-      <td>Cloudera</td>
+      <td>Stripe</td>
+    </tr>
+    <tr>
+      <td>Szehon Ho</td>
+      <td>Databricks</td>
     </tr>
     <tr>
       <td>Herman van Hovell</td>
@@ -234,7 +290,7 @@
     </tr>
     <tr>
       <td>Liang-Chi Hsieh</td>
-      <td>Apple</td>
+      <td>Databricks</td>
     </tr>
     <tr>
       <td>Yin Huai</td>
@@ -243,6 +299,10 @@
     <tr>
       <td>Shane Huang</td>
       <td>Intel</td>
+    </tr>
+    <tr>
+      <td>Yicong Huang</td>
+      <td>Databricks, UMass Amherst</td>
     </tr>
     <tr>
       <td>Dongjoon Hyun</td>
@@ -262,7 +322,7 @@
     </tr>
     <tr>
       <td>Holden Karau</td>
-      <td>Apple</td>
+      <td>Fight Health Insurance</td>
     </tr>
     <tr>
       <td>Shane Knapp</td>
@@ -270,7 +330,7 @@
     </tr>
     <tr>
       <td>Cody Koeninger</td>
-      <td>Nexstar Digital</td>
+      <td>&#160;</td>
     </tr>
     <tr>
       <td>Andy Konwinski</td>
@@ -283,6 +343,10 @@
     <tr>
       <td>Ryan LeCompte</td>
       <td>Quantifind</td>
+    </tr>
+    <tr>
+      <td>Haejoon Lee</td>
+      <td>Databricks</td>
     </tr>
     <tr>
       <td>Haoyuan Li</td>
@@ -333,8 +397,12 @@
       <td>LinkedIn</td>
     </tr>
     <tr>
+      <td>Anton Okolnychyi</td>
+      <td>Databricks</td>
+    </tr>
+    <tr>
       <td>Andrew Or</td>
-      <td>Princeton University</td>
+      <td>Facebook</td>
     </tr>
     <tr>
       <td>Kay Ousterhout</td>
@@ -345,12 +413,20 @@
       <td>Databricks</td>
     </tr>
     <tr>
+      <td>Bingkun Pan</td>
+      <td>Baidu</td>
+    </tr>
+    <tr>
+      <td>Cheng Pan</td>
+      <td>NetEase</td>
+    </tr>
+    <tr>
       <td>Tejas Patil</td>
-      <td>Facebook</td>
+      <td>Meta</td>
     </tr>
     <tr>
       <td>Nick Pentreath</td>
-      <td>IBM</td>
+      <td>Automattic</td>
     </tr>
     <tr>
       <td>Attila Zsolt Piros</td>
@@ -358,7 +434,7 @@
     </tr>
     <tr>
       <td>Anirudh Ramanathan</td>
-      <td>Rockset</td>
+      <td>Signadot</td>
     </tr>
     <tr>
       <td>Imran Rashid</td>
@@ -370,23 +446,27 @@
     </tr>
     <tr>
       <td>Josh Rosen</td>
-      <td>Stripe</td>
+      <td>Databricks</td>
     </tr>
     <tr>
       <td>Sandy Ryza</td>
-      <td>Remix</td>
+      <td>Databricks</td>
     </tr>
     <tr>
       <td>Kousuke Saruta</td>
-      <td>NTT Data</td>
+      <td>AWS</td>
     </tr>
     <tr>
       <td>Saisai Shao</td>
-      <td>Tencent</td>
+      <td>Datastrato</td>
     </tr>
     <tr>
       <td>Prashant Sharma</td>
       <td>IBM</td>
+    </tr>
+    <tr>
+      <td>Anish Shrigondekar</td>
+      <td>Databricks</td>
     </tr>
     <tr>
       <td>Gabor Somogyi</td>
@@ -394,27 +474,35 @@
     </tr>
     <tr>
       <td>Ram Sriharsha</td>
-      <td>Databricks</td>
+      <td>Pinecone</td>
     </tr>
     <tr>
       <td>Chao Sun</td>
-      <td>Apple</td>
+      <td>OpenAI</td>
     </tr>
     <tr>
       <td>Maciej Szymkiewicz</td>
       <td>&#160;</td>
     </tr>
     <tr>
+      <td>Daniel Tenedorio</td>
+      <td>Databricks</td>
+    </tr>
+    <tr>
       <td>Jose Torres</td>
       <td>Databricks</td>
     </tr>
     <tr>
-      <td>DB Tsai</td>
+      <td>Peter Toth</td>
       <td>Apple</td>
     </tr>
     <tr>
-      <td>Takuya Ueshin</td>
+      <td>DB Tsai</td>
       <td>Databricks</td>
+    </tr>
+    <tr>
+      <td>Takuya Ueshin</td>
+      <td>&#160;</td>
     </tr>
     <tr>
       <td>Marcelo Vanzin</td>
@@ -423,6 +511,10 @@
     <tr>
       <td>Shivaram Venkataraman</td>
       <td>University of Wisconsin, Madison</td>
+    </tr>
+    <tr>
+      <td>Allison Wang</td>
+      <td>Databricks</td>
     </tr>
     <tr>
       <td>Gengliang Wang</td>
@@ -434,7 +526,7 @@
     </tr>
     <tr>
       <td>Zhenhua Wang</td>
-      <td>Huawei</td>
+      <td>Alibaba</td>
     </tr>
     <tr>
       <td>Patrick Wendell</td>
@@ -461,12 +553,20 @@
       <td>NTT</td>
     </tr>
     <tr>
+      <td>Jie Yang</td>
+      <td>Baidu</td>
+    </tr>
+    <tr>
       <td>Kent Yao</td>
-      <td>NetEase</td>
+      <td>Microsoft</td>
     </tr>
     <tr>
       <td>Burak Yavuz</td>
       <td>Databricks</td>
+    </tr>
+    <tr>
+      <td>Xiduo You</td>
+      <td>NetEase</td>
     </tr>
     <tr>
       <td>Matei Zaharia</td>
@@ -489,8 +589,7 @@
 <a href="/contributing.html">how to contribute</a> – 
 anyone can submit patches, documentation and examples to the project.</p>
 
-<p>The PMC regularly adds new committers from the active contributors, based on their contributions 
-to Spark. The qualifications for new committers include:</p>
+<p>The <a href="https://projects.apache.org/committee.html?spark">Spark Project Management Committee</a> (PMC) regularly adds new committers from the active contributors based on their contributions to Spark. The qualifications for new committers include:</p>
 
 <ol>
   <li>Sustained contributions to Spark: Committers should have a history of major contributions to 
@@ -509,7 +608,17 @@ assessing quality. Contributors to these areas will face more review of their ch
 community interactions. They should also be active on the dev and user list and help mentor 
 newer contributors and users. In design discussions, committers should maintain a professional 
 and diplomatic approach, even in the face of disagreement.</li>
+  <li><a href="https://www.apache.org/theapacheway/">The Apache Way</a>: Committers should follow and
+understand <a href="https://www.apache.org/theapacheway/">The Apache Way</a> such as
+<a href="https://community.apache.org/committers/decisionMaking.html#lazy-consensus">Lazy Consensus</a>.
+<a href="https://community.apache.org/projectIndependence.html#apache-projects-are-managed-independently">Apache projects are managed independently</a>.</li>
 </ol>
+
+<blockquote>
+  <p>A community that obviously favors one specific vendor in some exclusive way will often
+discourage new contributors from competing vendors, and this would be an issue for the
+long-term health of the project.</p>
+</blockquote>
 
 <p>The type and level of contributions considered may vary by project area &#8211; for example, we 
 greatly encourage contributors who want to work on mainly the documentation, or mainly on 
@@ -576,8 +685,8 @@ origin	git@github.com:[your username]/spark.git (push)
 include setting up an SSH key and/or personal access token. See:</p>
 
 <ul>
-  <li>https://help.github.com/articles/connecting-to-github-with-ssh/</li>
-  <li>https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/</li>
+  <li><a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh">https://docs.github.com/en/authentication/connecting-to-github-with-ssh</a></li>
+  <li><a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens">https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens</a></li>
 </ul>
 
 <p>To check whether the necessary write access are already granted please visit <a href="https://gitbox.apache.org/setup/">GitBox</a>.</p>
@@ -599,12 +708,15 @@ Then, in a separate window, modify the code and push a commit. Run <code class="
 You can verify the result is one change with <code class="language-plaintext highlighter-rouge">git log</code>. Then resume the script in the other window.</p>
 
 <p>Also, please remember to set Assignee on JIRAs where applicable when they are resolved. The script 
-can do this automatically in most cases. However where the contributor is not yet a part of the
-Contributors group for the Spark project in ASF JIRA, it won&#8217;t work until they are added. Ask
-an admin to add the person to Contributors at 
-https://issues.apache.org/jira/plugins/servlet/project-config/SPARK/roles .</p>
+can do this automatically in most cases.</p>
 
 <p>Once a PR is merged please leave a comment on the PR stating which branch(es) it has been merged with.</p>
+
+<h4>Merging website pull requests</h4>
+
+<p>Pull requests to the <a href="https://github.com/apache/spark-website">Spark website repo</a> are merged separately from the <a href="https://github.com/apache/spark">main Spark repo</a>. Unlike the main repo, the website uses <code class="language-plaintext highlighter-rouge">asf-site</code> as its default branch; there is no <code class="language-plaintext highlighter-rouge">master</code> branch.</p>
+
+<p>The website repo does not use a merge script. Instead, use GitHub&#8217;s &#8220;Squash and merge&#8221; button to merge PRs.</p>
 
 <h3>Policy on backporting bug fixes</h3>
 
@@ -648,17 +760,17 @@ of the immediate bug being fixed.</li>
         <h5>Latest News</h5>
         <ul class="list-unstyled">
           
-          <li><a href="/news/spark-3-4-0-released.html">Spark 3.4.0 released</a>
-            <span class="small">(Apr 13, 2023)</span></li>
+          <li><a href="/news/spark-4-3-0-released.html">Spark 4.3.0 released</a>
+            <span class="small">(Oct 30, 2026)</span></li>
           
-          <li><a href="/news/spark-3-2-4-released.html">Spark 3.2.4 released</a>
-            <span class="small">(Apr 13, 2023)</span></li>
+          <li><a href="/news/spark-4-2-1-released.html">Spark 4.2.1 released</a>
+            <span class="small">(Oct 27, 2026)</span></li>
           
-          <li><a href="/news/spark-3-3-2-released.html">Spark 3.3.2 released</a>
-            <span class="small">(Feb 17, 2023)</span></li>
+          <li><a href="/news/spark-4-1-4-released.html">Spark 4.1.4 released</a>
+            <span class="small">(Oct 27, 2026)</span></li>
           
-          <li><a href="/news/spark-3-2-3-released.html">Spark 3.2.3 released</a>
-            <span class="small">(Nov 28, 2022)</span></li>
+          <li><a href="/news/spark-4-0-5-released.html">Spark 4.0.5 released</a>
+            <span class="small">(Oct 27, 2026)</span></li>
           
         </ul>
         <p class="small" style="text-align: right;"><a href="/news/index.html">Archive</a></p>
@@ -699,11 +811,16 @@ of the immediate bug being fixed.</li>
   </footer>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/jquery.js"></script>
+<script src="/js/jquery.js"></script>
+<script src="/js/bootstrap.bundle.min.js"></script>
 <script src="/js/lang-tabs.js"></script>
 <script src="/js/downloads.js"></script>
+
+<script src="/js/vendor/anchor.min.js"></script>
+<script>
+  // Display anchor links when hovering over headings.
+  // See: https://www.bryanbraun.com/anchorjs/
+  anchors.add('#content :is(h2, h3, h4, h5, h6)');
+</script>
 </body>
 </html>

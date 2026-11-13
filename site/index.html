@@ -21,14 +21,30 @@
   <meta name="twitter:image" content="https://spark.apache.org/images/spark-twitter-card-large.jpg">
 
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link href="/css/bootstrap.min.css" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
   <link href="/css/custom.css" rel="stylesheet">
   <link href="/css/pygments-default.css" rel="stylesheet">
   <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+  <!-- Matomo -->
+  <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(["disableCookies"]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u="https://analytics.apache.org/";
+      _paq.push(['setTrackerUrl', u+'matomo.php']);
+      _paq.push(['setSiteId', '40']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
+  <!-- End Matomo Code -->
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark p-0 px-4" style="background: #1D6890;">
@@ -52,9 +68,11 @@
         </a>
         <ul class="dropdown-menu" aria-labelledby="libraries">
           <li><a class="dropdown-item" href="/sql/">SQL and DataFrames</a></li>
+          <li><a class="dropdown-item" href="/spark-connect/">Spark Connect</a></li>
           <li><a class="dropdown-item" href="/streaming/">Spark Streaming</a></li>
+          <li><a class="dropdown-item" href="/pandas-on-spark/">pandas on Spark</a></li>
           <li><a class="dropdown-item" href="/mllib/">MLlib (machine learning)</a></li>
-          <li><a class="dropdown-item" href="/graphx/">GraphX (graph)</a></li>
+          <li><a class="dropdown-item" href="/graphx/">GraphX (deprecated)</a></li>
           <li>
             <hr class="dropdown-divider">
           </li>
@@ -105,6 +123,20 @@
           <li><a class="dropdown-item" href="/security.html">Security</a></li>
         </ul>
       </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="github" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          GitHub
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="github">
+          <li><a class="dropdown-item" href="https://github.com/apache/spark">spark</a></li>
+          <li><a class="dropdown-item" href="https://github.com/apache/spark-connect-go">spark-connect-go</a></li>
+          <li><a class="dropdown-item" href="https://github.com/apache/spark-connect-rust">spark-connect-rust</a></li>
+          <li><a class="dropdown-item" href="https://github.com/apache/spark-connect-swift">spark-connect-swift</a></li>
+          <li><a class="dropdown-item" href="https://github.com/apache/spark-docker">spark-docker</a></li>
+          <li><a class="dropdown-item" href="https://github.com/apache/spark-kubernetes-operator">spark-kubernetes-operator</a></li>
+          <li><a class="dropdown-item" href="https://github.com/apache/spark-website">spark-website</a></li>
+        </ul>
+      </li>
     </ul>
     <ul class="navbar-nav ml-auto">
       <li class="nav-item dropdown">
@@ -118,7 +150,6 @@
           <li><a class="dropdown-item"
                  href="https://www.apache.org/foundation/sponsorship.html">Sponsorship</a></li>
           <li><a class="dropdown-item" href="https://www.apache.org/foundation/thanks.html">Thanks</a></li>
-          <li><a class="dropdown-item" href="https://www.apache.org/security/">Security</a></li>
           <li><a class="dropdown-item" href="https://www.apache.org/events/current-event">Event</a></li>
         </ul>
       </li>
@@ -213,11 +244,16 @@
         <div class="tab-content py-5 spark-install" id="nav-tabContent">
             <div class="tab-pane fade show active" id="nav-python" role="tabpanel" aria-labelledby="nav-python-tab">
                 <div class="mb-2 title">Run now</div>
-                <div style="font-size: 16px;">Installing with 'pip'
+                <div style="font-size: 16px;">Install with 'pip'
                 </div>
                 <div class="code">
                     <p>$ pip install pyspark</p>
                     <p>$ pyspark</p>
+                </div>
+                <div style="font-size: 16px;">Use the official Docker image
+                </div>
+                <div class="code">
+                    <p>$ docker run -it --rm spark:python3 /opt/spark/bin/pyspark</p>
                 </div>
                 <div class="examples mt-5">
                     <div class="window"><span class="circle red"></span><span class="circle yellow"></span><span class="circle green"></span></div>
@@ -273,7 +309,7 @@
             <div class="tab-pane fade" id="nav-sql" role="tabpanel" aria-labelledby="nav-sql-tab">
                 <div class="mb-2 title">Run now</div>
                 <div class="code">
-                    <p>$ docker run -it --rm apache/spark /opt/spark/bin/spark-sql</p>
+                    <p>$ docker run -it --rm spark /opt/spark/bin/spark-sql</p>
                     <p>spark-sql&gt;</p>
                 </div>
                 <div class="examples mt-5">
@@ -293,7 +329,7 @@
             <div class="tab-pane fade" id="nav-scala" role="tabpanel" aria-labelledby="nav-scala-tab">
                 <div class="mb-2 title">Run now</div>
                 <div class="code">
-                    <p>$ docker run -it --rm apache/spark /opt/spark/bin/spark-shell</p>
+                    <p>$ docker run -it --rm spark /opt/spark/bin/spark-shell</p>
                     <p>scala&gt;</p>
                 </div>
                 <div class="examples mt-5">
@@ -310,7 +346,7 @@
             <div class="tab-pane fade" id="nav-java" role="tabpanel" aria-labelledby="nav-java-tab">
                 <div class="mb-2 title">Run now</div>
                 <div class="code">
-                    <p>$ docker run -it --rm apache/spark /opt/spark/bin/spark-shell</p>
+                    <p>$ docker run -it --rm spark /opt/spark/bin/spark-shell</p>
                     <p>scala&gt;</p>
                 </div>
                 <div class="examples mt-5">
@@ -327,7 +363,7 @@
             <div class="tab-pane fade" id="nav-r" role="tabpanel" aria-labelledby="nav-r-tab">
                 <div class="mb-2 title">Run now</div>
                 <div class="code">
-                    <p>$ SPARK-HOME/bin/sparkR</p>
+                    <p>$ docker run -it --rm spark:r /opt/spark/bin/sparkR</p>
                     <p>&gt;</p>
                 </div>
                 <div class="examples mt-5">
@@ -369,39 +405,40 @@
                 <div class="text-center ecosystem-title">Data science and Machine learning
                 </div>
                 <div class="row d-flex align-items-center">
-                    <div class="col-12 col-md-4"><img src="/images/scikit-learn.png" height="90" width="166" /></div>
-                    <div class="col-12 col-md-4"><img src="/images/pandas.png" height="90" width="166" /></div>
-                    <div class="col-12 col-md-4"><img src="/images/tf_logo_social.png" height="90" width="166" /></div>
-                    <div class="col-12 col-md-4"><img src="/images/pytorch.png" height="90" width="166" /></div>
-                    <div class="col-12 col-md-4"><img src="/images/mlflow-logo.png" height="90" width="166" /></div>
-                    <div class="col-12 col-md-4"><img src="/images/r_logo.png" height="90" width="166" /></div>
-                    <div class="col-12 col-md-4"><img src="/images/numpy.png" height="90" width="166" /></div>
+                    <div class="col-12 col-md-4"><img src="/images/scikit-learn.png" height="90" width="166" alt="scikit learn" /></div>
+                    <div class="col-12 col-md-4"><img src="/images/pandas.png" height="90" width="166" alt="pandas" /></div>
+                    <div class="col-12 col-md-4"><img src="/images/tf_logo_social.png" height="90" width="166" alt="TensorFlow" /></div>
+                    <div class="col-12 col-md-4"><img src="/images/pytorch.png" height="90" width="166" alt="PyTorch" /></div>
+                    <div class="col-12 col-md-4"><img src="/images/mlflow-logo.png" height="90" width="166" alt="mlflow" /></div>
+                    <div class="col-12 col-md-4"><img src="/images/r_logo.png" height="90" width="166" alt="R" /></div>
+                    <div class="col-12 col-md-4"><img src="/images/numpy.png" height="90" width="166" alt="NumPy" /></div>
                 </div>
             </div>
             <div class="col-12 col-md-12 col-lg-5 mt-5 mt-md-5 mt-lg-0 mx-auto">
                 <div class="text-center ecosystem-title">SQL analytics and BI</div>
                 <div class="row d-flex align-items-center">
-                    <div class="col-12 col-md-4"><img src="/images/superset.png" height="90" width="166" /></div>
-                    <div class="col-12 col-md-4"><img src="/images/PowerBI-Logo-Square-Insight-Platforms.png" height="90" width="166" /></div>
-                    <div class="col-12 col-md-4"><img src="/images/looker_logo.png" height="90" width="166" /></div>
-                    <div class="col-12 col-md-4"><img src="/images/redash.png" height="90" width="166" /></div>
-                    <div class="col-12 col-md-4"><img src="/images/tableau-logo-tableau-software.png" height="90" width="166" /></div>
-                    <div class="col-12 col-md-4"><img src="/images/dbt.png" height="90" width="166" /></div>
+                    <div class="col-12 col-md-4"><img src="/images/superset.png" height="90" width="166" alt="Apache Superset" /></div>
+                    <div class="col-12 col-md-4"><img src="/images/PowerBI-Logo-Square-Insight-Platforms.png" height="90" width="166" alt="PowerBI" /></div>
+                    <div class="col-12 col-md-4"><img src="/images/looker_logo.png" height="90" width="166" alt="Looker" /></div>
+                    <div class="col-12 col-md-4"><img src="/images/redash.png" height="90" width="166" alt="Redash" /></div>
+                    <div class="col-12 col-md-4"><img src="/images/tableau-logo-tableau-software.png" height="90" width="166" alt="Tableau" /></div>
+                    <div class="col-12 col-md-4"><img src="/images/dbt.png" height="90" width="166" alt="dbt" /></div>
                 </div>
             </div>
             <div class="col-12 col-md-12 col-lg-10 mt-5 pt-5 mx-auto">
                 <div class="text-center ecosystem-title">Storage and Infrastructure</div>
                 <div class="row d-flex align-items-center">
-                    <div class="col"><img src="/images/Elasticsearch.png" height="90" width="166" /></div>
-                    <div class="col"><img src="/images/mongo.png" height="90" width="166" /></div>
-                    <div class="col"><img src="/images/kafka.png" height="90" width="166" /></div>
-                    <div class="col"><img src="/images/delta-lake-logo.png" height="90" width="166" /></div>
-                    <div class="col"><img src="/images/kubernetes-horizontal-color.png" height="90" width="166" /></div>
-                    <div class="col"><img src="/images/AirflowLogo.png" height="90" width="166" /></div>
-                    <div class="col"><img src="/images/Apache_Parquet_logo.png" height="90" width="166" /></div>
-                    <div class="col"><img src="/images/sqlserver.png" height="90" width="166" /></div>
-                    <div class="col"><img src="/images/1280px-Cassandra_logo.png" height="90" width="166" /></div>
-                    <div class="col"><img src="/images/Apache_Orc_logo.png" height="90" width="166" /></div>
+                    <div class="col"><img src="/images/Elasticsearch.png" height="90" width="166" alt="Elasticsearch" /></div>
+                    <div class="col"><img src="/images/mongo.png" height="90" width="166" alt="mongoDB" /></div>
+                    <div class="col"><img src="/images/kafka.png" height="90" width="166" alt="Apache Kafka" /></div>
+                    <div class="col"><img src="/images/delta-lake-logo.png" height="90" width="166" alt="Delta Lake" /></div>
+                    <div class="col"><img src="/images/kubernetes-horizontal-color.png" height="90" width="166" alt="Kubernetes" /></div>
+                    <div class="col"><img src="/images/AirflowLogo.png" height="90" width="166" alt="Apache Airflow" /></div>
+                    <div class="col"><img src="/images/Apache_Parquet_logo.png" height="90" width="166" alt="Parquet" /></div>
+                    <div class="col"><img src="/images/sqlserver.png" height="90" width="166" alt="SQL Server" /></div>
+                    <div class="col"><img src="/images/1280px-Cassandra_logo.png" height="90" width="166" alt="Cassandra" /></div>
+                    <div class="col"><img src="/images/Apache_Iceberg_logo.png" height="" width="166" alt="Apache Iceberg" /></div>
+                    <div class="col"><img src="/images/Apache_Orc_logo.png" height="90" width="166" alt="Apache Orc" /></div>
                 </div>
             </div>
         </div>
@@ -514,8 +551,6 @@
   <hr>
   Apache Spark, Spark, Apache, the Apache feather logo, and the Apache Spark project logo are either registered trademarks or trademarks of The Apache Software Foundation in the United States and other countries. See guidance on use of Apache Spark <a href="/trademarks.html">trademarks</a>. All other marks mentioned may be trademarks or registered trademarks of their respective owners. Copyright © 2018 The Apache Software Foundation, Licensed under the <a href="https://www.apache.org/licenses/">Apache License, Version 2.0</a>.
 </footer>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
+<script src="/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

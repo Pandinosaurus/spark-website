@@ -1,53 +1,60 @@
 ---
 layout: global
 title: Committers
-type: "page singular"
+type: "page"
 navigation:
   weight: 5
   show: true
 ---
-<h2>Current committers</h2>
 
 |Name|Organization|
 |----|------------|
-|Sameer Agarwal|Facebook|
+|Sameer Agarwal|Deductive AI|
 |Michael Armbrust|Databricks|
 |Dilip Biswal|Adobe|
-|Ryan Blue|Netflix|
+|Ryan Blue|Databricks|
+|Uros Bojanic|Databricks|
 |Joseph Bradley|Databricks|
+|Nicholas Chammas||
 |Matthew Cheah|Palantir|
-|Felix Cheung|SafeGraph|
+|Felix Cheung|NVIDIA|
 |Mosharaf Chowdhury|University of Michigan, Ann Arbor|
 |Bryan Cutler|IBM|
 |Jason Dai|Intel|
 |Tathagata Das|Databricks|
-|Ankur Dave|UC Berkeley|
+|Ankur Dave|Databricks|
 |Aaron Davidson|Databricks|
-|Thomas Dudziak|Facebook|
+|Thomas Dudziak|Meta|
 |Erik Erlandson|Red Hat|
 |Robert Evans|NVIDIA|
 |Wenchen Fan|Databricks|
-|Huaxin Gao|Apple|
+|Huaxin Gao|Snowflake|
+|Tian Gao|Databricks|
 |Max Gekk|Databricks|
+|Jiaan Geng|NetEase|
 |Joseph Gonzalez|UC Berkeley|
 |Thomas Graves|NVIDIA|
+|Martin Grund|Databricks|
 |Stephen Haberman|LinkedIn|
 |Mark Hamstra|ClearStory Data|
-|Seth Hendrickson|Cloudera|
+|Seth Hendrickson|Stripe|
+|Szehon Ho|Databricks|
 |Herman van Hovell|Databricks|
-|Liang-Chi Hsieh|Apple|
+|Liang-Chi Hsieh|Databricks|
 |Yin Huai|Databricks|
 |Shane Huang|Intel|
+|Yicong Huang|Databricks, UMass Amherst|
 |Dongjoon Hyun|Apple|
 |Kazuaki Ishizaki|IBM|
 |Xingbo Jiang|Databricks|
 |Yikun Jiang|Huawei|
-|Holden Karau|Apple|
+|Holden Karau|Fight Health Insurance|
 |Shane Knapp|UC Berkeley|
-|Cody Koeninger|Nexstar Digital|
+|Cody Koeninger||
 |Andy Konwinski|Databricks|
 |Hyukjin Kwon|Databricks|
 |Ryan LeCompte|Quantifind|
+|Haejoon Lee|Databricks|
 |Haoyuan Li|Alluxio|
 |Xiao Li|Databricks|
 |Yinan Li|Google|
@@ -60,40 +67,49 @@ navigation:
 |Xiangrui Meng|Databricks|
 |Xinrong Meng|Databricks|
 |Mridul Muralidharan|LinkedIn|
-|Andrew Or|Princeton University|
+|Anton Okolnychyi|Databricks|
+|Andrew Or|Facebook|
 |Kay Ousterhout|LightStep|
 |Sean Owen|Databricks|
-|Tejas Patil|Facebook|
-|Nick Pentreath|IBM|
+|Bingkun Pan|Baidu|
+|Cheng Pan|NetEase|
+|Tejas Patil|Meta|
+|Nick Pentreath|Automattic|
 |Attila Zsolt Piros|Cloudera|
-|Anirudh Ramanathan|Rockset|
+|Anirudh Ramanathan|Signadot|
 |Imran Rashid|Cloudera|
 |Charles Reiss|University of Virginia|
-|Josh Rosen|Stripe|
-|Sandy Ryza|Remix|
-|Kousuke Saruta|NTT Data|
-|Saisai Shao|Tencent|
+|Josh Rosen|Databricks|
+|Sandy Ryza|Databricks|
+|Kousuke Saruta|AWS|
+|Saisai Shao|Datastrato|
 |Prashant Sharma|IBM|
+|Anish Shrigondekar|Databricks|
 |Gabor Somogyi|Apple|
-|Ram Sriharsha|Databricks|
-|Chao Sun|Apple|
+|Ram Sriharsha|Pinecone|
+|Chao Sun|OpenAI|
 |Maciej Szymkiewicz||
+|Daniel Tenedorio|Databricks|
 |Jose Torres|Databricks|
-|DB Tsai|Apple|
-|Takuya Ueshin|Databricks|
+|Peter Toth|Apple|
+|DB Tsai|Databricks|
+|Takuya Ueshin||
 |Marcelo Vanzin|Cloudera|
 |Shivaram Venkataraman|University of Wisconsin, Madison|
+|Allison Wang|Databricks|
 |Gengliang Wang|Databricks|
 |Yuming Wang|eBay|
-|Zhenhua Wang|Huawei|
+|Zhenhua Wang|Alibaba|
 |Patrick Wendell|Databricks|
 |Yi Wu|Databricks|
 |Andrew Xia|Alibaba|
 |Reynold Xin|Databricks|
 |Weichen Xu|Databricks|
 |Takeshi Yamamuro|NTT|
-|Kent Yao|NetEase|
+|Jie Yang|Baidu|
+|Kent Yao|Microsoft|
 |Burak Yavuz|Databricks|
+|Xiduo You|NetEase|
 |Matei Zaharia|Databricks, Stanford|
 |Ruifeng Zheng|Databricks|
 |Shixiong Zhu|Databricks|
@@ -104,8 +120,9 @@ To get started contributing to Spark, learn
 <a href="{{site.baseurl}}/contributing.html">how to contribute</a> – 
 anyone can submit patches, documentation and examples to the project.
 
-The PMC regularly adds new committers from the active contributors, based on their contributions 
-to Spark. The qualifications for new committers include:
+The [Spark Project Management Committee][pmc] (PMC) regularly adds new committers from the active contributors based on their contributions to Spark. The qualifications for new committers include:
+
+[pmc]: https://projects.apache.org/committee.html?spark
 
 1. Sustained contributions to Spark: Committers should have a history of major contributions to 
 Spark. An ideal committer will have contributed broadly throughout the project, and have 
@@ -123,6 +140,14 @@ assessing quality. Contributors to these areas will face more review of their ch
 community interactions. They should also be active on the dev and user list and help mentor 
 newer contributors and users. In design discussions, committers should maintain a professional 
 and diplomatic approach, even in the face of disagreement.
+4. [The Apache Way](https://www.apache.org/theapacheway/): Committers should follow and
+understand [The Apache Way](https://www.apache.org/theapacheway/) such as
+[Lazy Consensus](https://community.apache.org/committers/decisionMaking.html#lazy-consensus).
+[Apache projects are managed independently](https://community.apache.org/projectIndependence.html#apache-projects-are-managed-independently).
+
+  > A community that obviously favors one specific vendor in some exclusive way will often
+  > discourage new contributors from competing vendors, and this would be an issue for the
+  > long-term health of the project.
 
 The type and level of contributions considered may vary by project area -- for example, we 
 greatly encourage contributors who want to work on mainly the documentation, or mainly on 
@@ -194,8 +219,8 @@ origin	git@github.com:[your username]/spark.git (push)
 For the `apache` repo, you will need to set up command-line authentication to GitHub. This may
 include setting up an SSH key and/or personal access token. See:
 
-- https://help.github.com/articles/connecting-to-github-with-ssh/
-- https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/
+- [https://docs.github.com/en/authentication/connecting-to-github-with-ssh](https://docs.github.com/en/authentication/connecting-to-github-with-ssh)
+- [https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)
 
 To check whether the necessary write access are already granted please visit [GitBox](https://gitbox.apache.org/setup/).
 
@@ -216,12 +241,15 @@ Then, in a separate window, modify the code and push a commit. Run `git rebase -
 You can verify the result is one change with `git log`. Then resume the script in the other window.
 
 Also, please remember to set Assignee on JIRAs where applicable when they are resolved. The script 
-can do this automatically in most cases. However where the contributor is not yet a part of the
-Contributors group for the Spark project in ASF JIRA, it won't work until they are added. Ask
-an admin to add the person to Contributors at 
-https://issues.apache.org/jira/plugins/servlet/project-config/SPARK/roles .
+can do this automatically in most cases.
 
 Once a PR is merged please leave a comment on the PR stating which branch(es) it has been merged with.
+
+<h4>Merging website pull requests</h4>
+
+Pull requests to the [Spark website repo](https://github.com/apache/spark-website) are merged separately from the [main Spark repo](https://github.com/apache/spark). Unlike the main repo, the website uses `asf-site` as its default branch; there is no `master` branch.
+
+The website repo does not use a merge script. Instead, use GitHub's "Squash and merge" button to merge PRs.
 
 <h3>Policy on backporting bug fixes</h3>
 

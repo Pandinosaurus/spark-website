@@ -14,8 +14,7 @@
 
   
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link href="/css/bootstrap.min.css" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
@@ -23,6 +22,23 @@
   <!-- Code highlighter CSS -->
   <link href="/css/pygments-default.css" rel="stylesheet">
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+  <!-- Matomo -->
+  <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(["disableCookies"]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u="https://analytics.apache.org/";
+      _paq.push(['setTrackerUrl', u+'matomo.php']);
+      _paq.push(['setSiteId', '40']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
+  <!-- End Matomo Code -->
 </head>
 <body class="global">
 <nav class="navbar navbar-expand-lg navbar-dark p-0 px-4" style="background: #1D6890;">
@@ -46,7 +62,9 @@
         </a>
         <ul class="dropdown-menu" aria-labelledby="libraries">
           <li><a class="dropdown-item" href="/sql/">SQL and DataFrames</a></li>
+          <li><a class="dropdown-item" href="/spark-connect/">Spark Connect</a></li>
           <li><a class="dropdown-item" href="/streaming/">Spark Streaming</a></li>
+          <li><a class="dropdown-item" href="/pandas-on-spark/">pandas on Spark</a></li>
           <li><a class="dropdown-item" href="/mllib/">MLlib (machine learning)</a></li>
           <li><a class="dropdown-item" href="/graphx/">GraphX (graph)</a></li>
           <li>
@@ -98,6 +116,20 @@
           <li><a class="dropdown-item" href="/security.html">Security</a></li>
         </ul>
       </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="github" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          GitHub
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="github">
+          <li><a class="dropdown-item" href="https://github.com/apache/spark">spark</a></li>
+          <li><a class="dropdown-item" href="https://github.com/apache/spark-connect-go">spark-connect-go</a></li>
+          <li><a class="dropdown-item" href="https://github.com/apache/spark-connect-rust">spark-connect-rust</a></li>
+          <li><a class="dropdown-item" href="https://github.com/apache/spark-connect-swift">spark-connect-swift</a></li>
+          <li><a class="dropdown-item" href="https://github.com/apache/spark-docker">spark-docker</a></li>
+          <li><a class="dropdown-item" href="https://github.com/apache/spark-kubernetes-operator">spark-kubernetes-operator</a></li>
+          <li><a class="dropdown-item" href="https://github.com/apache/spark-website">spark-website</a></li>
+        </ul>
+      </li>
     </ul>
     <ul class="navbar-nav ml-auto">
       <li class="nav-item dropdown">
@@ -111,7 +143,6 @@
           <li><a class="dropdown-item"
                  href="https://www.apache.org/foundation/sponsorship.html">Sponsorship</a></li>
           <li><a class="dropdown-item" href="https://www.apache.org/foundation/thanks.html">Thanks</a></li>
-          <li><a class="dropdown-item" href="https://www.apache.org/security/">Security</a></li>
           <li><a class="dropdown-item" href="https://www.apache.org/events/current-event">Event</a></li>
         </ul>
       </li>
@@ -121,45 +152,71 @@
 
 <div class="container">
   <div class="row mt-4">
-    <div class="col-12 col-md-9">
+    <div class="col-12 col-md-9" id="content">
+      
+      <h1>Third-Party Projects</h1>
+      
       <p>This page tracks external software projects that supplement Apache Spark and add to its ecosystem.</p>
 
-<p>To add a project, open a pull request against the <a href="https://github.com/apache/spark-website">spark-website</a> 
-repository. Add an entry to 
-<a href="https://github.com/apache/spark-website/blob/asf-site/third-party-projects.md">this markdown file</a>, 
-then run <code class="language-plaintext highlighter-rouge">jekyll build</code> to generate the HTML too. Include
-both in your pull request. See the README in this repo for more information.</p>
+<h2 id="popular-libraries-with-pyspark-integrations">Popular libraries with PySpark integrations</h2>
 
-<p>Note that all project and product names should follow <a href="/trademarks.html">trademark guidelines</a>.</p>
+<ul>
+  <li><a href="https://github.com/great-expectations/great_expectations">great-expectations</a> - Always know what to expect from your data</li>
+  <li><a href="https://github.com/apache/airflow">Apache Airflow</a> - A platform to programmatically author, schedule, and monitor workflows</li>
+  <li><a href="https://github.com/dmlc/xgboost">xgboost</a> - Scalable, portable and distributed gradient boosting</li>
+  <li><a href="https://github.com/shap/shap">shap</a> - A game theoretic approach to explain the output of any machine learning model</li>
+  <li><a href="https://github.com/awslabs/python-deequ">python-deequ</a> - Measures data quality in large datasets</li>
+  <li><a href="https://github.com/datahub-project/datahub">datahub</a> - Metadata platform for the modern data stack</li>
+  <li><a href="https://github.com/dbt-labs/dbt-spark">dbt-spark</a> - Enables dbt to work with Apache Spark</li>
+  <li><a href="https://github.com/DAGWorks-Inc/hamilton">Hamilton</a> - Enables one to declaratively describe PySpark transformations that helps keep code testable, modular, and logically visualizable.</li>
+  <li><a href="https://stabrise.com/scaledp/">ScaleDP</a> - An Open-Source Library for Processing Documents using AI/ML in Apache Spark.</li>
+</ul>
 
-<h2>spark-packages.org</h2>
+<h2 id="connectors">Connectors</h2>
 
-<p><a href="https://spark-packages.org/">spark-packages.org</a> is an external, 
-community-managed list of third-party libraries, add-ons, and applications that work with 
-Apache Spark. You can add a package as long as you have a GitHub repository.</p>
+<ul>
+  <li><a href="https://github.com/spark-redshift-community/spark-redshift">spark-redshift</a> - Performant Redshift data source for Apache Spark</li>
+  <li><a href="https://github.com/microsoft/sql-spark-connector">spark-sql-connector</a> - Apache Spark Connector for SQL Server and Azure SQL</li>
+  <li><a href="https://github.com/Azure/azure-cosmosdb-spark">azure-cosmos-spark</a> - Apache Spark Connector for Azure Cosmos DB</li>
+  <li><a href="https://github.com/Azure/azure-event-hubs-spark">azure-event-hubs-spark</a> - Enables continuous data processing with Apache Spark and Azure Event Hubs</li>
+  <li><a href="https://github.com/Azure/azure-kusto-spark">azure-kusto-spark</a> - Apache Spark connector for Azure Kusto</li>
+  <li><a href="https://github.com/mongodb/mongo-spark">mongo-spark</a> - The MongoDB Spark connector</li>
+  <li><a href="https://github.com/couchbase/couchbase-spark-connector">couchbase-spark-connector</a> - The Official Couchbase Spark connector</li>
+  <li><a href="https://github.com/datastax/spark-cassandra-connector">spark-cassandra-connector</a> - DataStax connector for Apache Spark to Apache Cassandra</li>
+  <li><a href="https://github.com/elastic/elasticsearch-hadoop">elasticsearch-hadoop</a> - Elasticsearch real-time search and analytics natively integrated with Spark</li>
+  <li><a href="https://github.com/neo4j-contrib/neo4j-spark-connector">neo4j-spark-connector</a> - Neo4j Connector for Apache Spark</li>
+  <li><a href="https://github.com/StarRocks/starrocks-connector-for-apache-spark">starrocks-connector-for-apache-spark</a> - StarRocks Apache Spark connector</li>
+  <li><a href="https://github.com/pingcap/tispark">tispark</a> - TiSpark is built for running Apache Spark on top of TiDB/TiKV</li>
+  <li><a href="https://stabrise.com/spark-pdf/">spark-pdf</a> - PDF Datasource for Apache Spark</li>
+  <li><a href="https://github.com/oceanbase/spark-connector-oceanbase">spark-connector-oceanbase</a> - Apache Spark Connectors for OceanBase</li>
+  <li><a href="https://github.com/lancedb/lance-spark">lance-spark</a> - Apache Spark connector for Lance datasets</li>
+  <li><a href="https://github.com/ClickHouse/spark-clickhouse-connector">spark-clickhouse-connector</a> - Apache Spark connector for ClickHouse</li>
+</ul>
+
+<h2 id="open-table-formats">Open table formats</h2>
+
+<ul>
+  <li><a href="https://delta.io">Delta Lake</a> - Storage layer that provides ACID transactions and scalable metadata handling for Apache Spark workloads</li>
+  <li><a href="https://github.com/apache/hudi">Hudi</a>: Upserts, Deletes And Incremental Processing on Big Data</li>
+  <li><a href="https://github.com/apache/iceberg">Iceberg</a> - Open table format for analytic datasets</li>
+  <li><a href="https://github.com/lancedb/lance">Lance</a> - Modern columnar data format for ML and LLMs</li>
+</ul>
 
 <h2>Infrastructure projects</h2>
 
 <ul>
-  <li><a href="https://github.com/spark-jobserver/spark-jobserver">REST Job Server for Apache Spark</a> - 
-REST interface for managing and submitting Spark jobs on the same cluster.</li>
-  <li><a href="http://mlbase.org/">MLbase</a> - Machine Learning research project on top of Spark</li>
+  <li><a href="https://github.com/apache/kyuubi">Kyuubi</a> - Apache Kyuubi is a distributed and multi-tenant gateway to provide serverless SQL on data warehouses and lakehouses</li>
+  <li><a href="https://github.com/spark-jobserver/spark-jobserver">REST Job Server for Apache Spark</a> - REST interface for managing and submitting Spark jobs on the same cluster.</li>
   <li><a href="https://mesos.apache.org/">Apache Mesos</a> - Cluster management system that supports 
 running Spark</li>
   <li><a href="https://www.alluxio.org/">Alluxio</a> (née Tachyon) - Memory speed virtual distributed 
 storage system that supports running Spark</li>
   <li><a href="https://github.com/filodb/FiloDB">FiloDB</a> - a Spark integrated analytical/columnar 
 database, with in-memory option capable of sub-second concurrent queries</li>
-  <li><a href="http://zeppelin-project.org/">Zeppelin</a> - Multi-purpose notebook which supports 20+ language backends,
-including Apache Spark</li>
-  <li><a href="https://github.com/EclairJS/eclairjs-node">EclairJS</a> - enables Node.js developers to code
-against Spark, and data scientists to use Javascript in Jupyter notebooks.</li>
-  <li><a href="https://github.com/Hydrospheredata/mist">Mist</a> - Serverless proxy for Spark cluster (spark middleware)</li>
-  <li><a href="https://github.com/GoogleCloudPlatform/spark-on-k8s-operator">K8S Operator for Apache Spark</a> - Kubernetes operator for specifying and managing the lifecycle of Apache Spark applications on Kubernetes.</li>
+  <li><a href="http://zeppelin-project.org/">Zeppelin</a> - Multi-purpose notebook which supports 20+ language backends, including Apache Spark</li>
+  <li><a href="https://github.com/kubeflow/spark-operator">Kubeflow Spark Operator</a> - Kubernetes operator for managing the lifecycle of Apache Spark applications on Kubernetes.</li>
   <li><a href="https://developer.ibm.com/storage/products/ibm-spectrum-conductor-spark/">IBM Spectrum Conductor</a> - Cluster management software that integrates with Spark and modern computing frameworks.</li>
-  <li><a href="https://delta.io">Delta Lake</a> - Storage layer that provides ACID transactions and scalable metadata handling for Apache Spark workloads.</li>
   <li><a href="https://mlflow.org">MLflow</a> - Open source platform to manage the machine learning lifecycle, including deploying models from diverse machine learning libraries on Apache Spark.</li>
-  <li><a href="https://github.com/databricks/koalas">Koalas</a> - Data frame API on Apache Spark that more closely follows Python&#8217;s pandas.</li>
   <li><a href="https://datafu.apache.org/docs/spark/getting-started.html">Apache DataFu</a> - A collection of utils and user-defined-functions for working with large scale data in Apache Spark, as well as making Scala-Python interoperability easier.</li>
 </ul>
 
@@ -168,28 +225,19 @@ against Spark, and data scientists to use Javascript in Jupyter notebooks.</li>
 <ul>
   <li><a href="https://mahout.apache.org/">Apache Mahout</a> - Previously on Hadoop MapReduce, 
 Mahout has switched to using Spark as the backend</li>
-  <li><a href="https://wiki.apache.org/mrql/">Apache MRQL</a> - A query processing and optimization 
-system for large-scale, distributed data analysis, built on top of Apache Hadoop, Hama, and Spark</li>
-  <li><a href="https://github.com/sameeragarwal/blinkdb">BlinkDB</a> - a massively parallel, approximate query engine built 
-on top of Shark and Spark</li>
-  <li><a href="https://github.com/adobe-research/spindle">Spindle</a> - Spark/Parquet-based web 
-analytics query engine</li>
-  <li><a href="https://github.com/thunderain-project/thunderain">Thunderain</a> - a framework 
-for combining stream processing with historical data, think Lambda architecture</li>
-  <li><a href="https://github.com/OryxProject/oryx">Oryx</a> -  Lambda architecture on Apache Spark, 
-Apache Kafka for real-time large scale machine learning</li>
   <li><a href="https://github.com/bigdatagenomics/adam">ADAM</a> - A framework and CLI for loading, 
 transforming, and analyzing genomic data using Apache Spark</li>
   <li><a href="https://github.com/salesforce/TransmogrifAI">TransmogrifAI</a> - AutoML library for building modular, reusable, strongly typed machine learning workflows on Spark with minimal hand tuning</li>
   <li><a href="https://github.com/JohnSnowLabs/spark-nlp">Natural Language Processing for Apache Spark</a> - A library to provide simple, performant, and accurate NLP annotations for machine learning pipelines</li>
   <li><a href="http://rumbledb.org">Rumble for Apache Spark</a> - A JSONiq engine to query, with a functional language, large, nested, and heterogeneous JSON datasets that do not fit in dataframes.</li>
+  <li><a href="https://github.com/zetaris/lightning-catalog">Lightning Catalog</a> - A data catalog for running ad-hoc queries, wrangling data by federating enterprise data assets, and building a unified semantic layer with data quality checks.</li>
 </ul>
 
 <h2>Performance, monitoring, and debugging tools for Spark</h2>
 
 <ul>
-  <li><a href="https://github.com/g1thubhub/phil_stopwatch">Performance and debugging library</a> - A library to analyze Spark and PySpark applications for improving performance and finding the cause of failures</li>
   <li><a href="https://www.datamechanics.co/delight">Data Mechanics Delight</a> - Delight is a free, hosted, cross-platform Spark UI alternative backed by an open-source Spark agent. It features new metrics and visualizations to simplify Spark monitoring and performance tuning.</li>
+  <li><a href="https://github.com/dataflint/spark">DataFlint</a> - DataFlint is A Spark UI replacement installed via an open-source library, which updates in real-time and alerts on performance issues</li>
 </ul>
 
 <h2>Additional language bindings</h2>
@@ -203,14 +251,7 @@ transforming, and analyzing genomic data using Apache Spark</li>
 <h3>Clojure</h3>
 
 <ul>
-  <li><a href="https://github.com/TheClimateCorporation/clj-spark">clj-spark</a></li>
   <li><a href="https://github.com/zero-one-group/geni">Geni</a> - A Clojure dataframe library that runs on Apache Spark with a focus on optimizing the REPL experience.</li>
-</ul>
-
-<h3>Groovy</h3>
-
-<ul>
-  <li><a href="https://github.com/bunions1/groovy-spark-example">groovy-spark-example</a></li>
 </ul>
 
 <h3>Julia</h3>
@@ -225,23 +266,35 @@ transforming, and analyzing genomic data using Apache Spark</li>
   <li><a href="https://github.com/JetBrains/kotlin-spark-api">Kotlin for Apache Spark</a></li>
 </ul>
 
+<h3>TypeScript</h3>
+
+<ul>
+  <li><a href="https://github.com/BaldrVivaldelli/ts-spark-connector">ts-spark-connector</a> - TypeScript client for Spark Connect that builds Spark logical plans in TypeScript and runs them against a Spark Connect server</li>
+</ul>
+
+<h2 id="adding-new-projects">Adding new projects</h2>
+
+<p>To add a project, open a pull request against the <a href="https://github.com/apache/spark-website">spark-website</a>  repository. Add an entry to <a href="https://github.com/apache/spark-website/blob/asf-site/third-party-projects.md">this markdown file</a> and follow the <a href="https://github.com/apache/spark-website#readme">README instructions</a> to submit a pull request with your changes.</p>
+
+<p>Note that all project and product names should follow <a href="/trademarks.html">trademark guidelines</a>.</p>
+
     </div>
     <div class="col-12 col-md-3">
       <div class="news" style="margin-bottom: 20px;">
         <h5>Latest News</h5>
         <ul class="list-unstyled">
           
-          <li><a href="/news/spark-3-4-0-released.html">Spark 3.4.0 released</a>
-            <span class="small">(Apr 13, 2023)</span></li>
+          <li><a href="/news/spark-4-3-0-released.html">Spark 4.3.0 released</a>
+            <span class="small">(Oct 30, 2026)</span></li>
           
-          <li><a href="/news/spark-3-2-4-released.html">Spark 3.2.4 released</a>
-            <span class="small">(Apr 13, 2023)</span></li>
+          <li><a href="/news/spark-4-2-1-released.html">Spark 4.2.1 released</a>
+            <span class="small">(Oct 27, 2026)</span></li>
           
-          <li><a href="/news/spark-3-3-2-released.html">Spark 3.3.2 released</a>
-            <span class="small">(Feb 17, 2023)</span></li>
+          <li><a href="/news/spark-4-1-4-released.html">Spark 4.1.4 released</a>
+            <span class="small">(Oct 27, 2026)</span></li>
           
-          <li><a href="/news/spark-3-2-3-released.html">Spark 3.2.3 released</a>
-            <span class="small">(Nov 28, 2022)</span></li>
+          <li><a href="/news/spark-4-0-5-released.html">Spark 4.0.5 released</a>
+            <span class="small">(Oct 27, 2026)</span></li>
           
         </ul>
         <p class="small" style="text-align: right;"><a href="/news/index.html">Archive</a></p>
@@ -282,11 +335,16 @@ transforming, and analyzing genomic data using Apache Spark</li>
   </footer>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/jquery.js"></script>
+<script src="/js/jquery.js"></script>
+<script src="/js/bootstrap.bundle.min.js"></script>
 <script src="/js/lang-tabs.js"></script>
 <script src="/js/downloads.js"></script>
+
+<script src="/js/vendor/anchor.min.js"></script>
+<script>
+  // Display anchor links when hovering over headings.
+  // See: https://www.bryanbraun.com/anchorjs/
+  anchors.add('#content :is(h2, h3, h4, h5, h6)');
+</script>
 </body>
 </html>

@@ -1,18 +1,47 @@
 ---
 layout: global
 title: Documentation
-type: "page singular"
+type: "page"
 navigation:
   weight: 3
   show: true
 ---
 
-<h2><span class="text-capitalize">Apache Spark<span class="tm">&trade;</span></span> Documentation</h2>
-
 <p>Setup instructions, programming guides, and other documentation are available for each stable version of Spark below:</p>
 
 <ul>
+  <li><a href="{{site.baseurl}}/docs/">Spark </a></li>
+  <li><a href="{{site.baseurl}}/docs/4.3.0/">Spark 4.3.0</a></li>
+  <li><a href="{{site.baseurl}}/docs/4.2.1/">Spark 4.2.1</a></li>
+  <li><a href="{{site.baseurl}}/docs/4.2.0/">Spark 4.2.0</a></li>
+  <li><a href="{{site.baseurl}}/docs/4.1.4/">Spark 4.1.4</a></li>
+  <li><a href="{{site.baseurl}}/docs/4.1.3/">Spark 4.1.3</a></li>
+  <li><a href="{{site.baseurl}}/docs/4.1.2/">Spark 4.1.2</a></li>
+  <li><a href="{{site.baseurl}}/docs/4.1.1/">Spark 4.1.1</a></li>
+  <li><a href="{{site.baseurl}}/docs/4.1.0/">Spark 4.1.0</a></li>
+  <li><a href="{{site.baseurl}}/docs/4.0.5/">Spark 4.0.5</a></li>
+  <li><a href="{{site.baseurl}}/docs/4.0.4/">Spark 4.0.4</a></li>
+  <li><a href="{{site.baseurl}}/docs/4.0.3/">Spark 4.0.3</a></li>
+  <li><a href="{{site.baseurl}}/docs/4.0.2/">Spark 4.0.2</a></li>
+  <li><a href="{{site.baseurl}}/docs/4.0.1/">Spark 4.0.1</a></li>
+  <li><a href="{{site.baseurl}}/docs/4.0.0/">Spark 4.0.0</a></li>
+  <li><a href="{{site.baseurl}}/docs/3.5.9/">Spark 3.5.9</a></li>
+  <li><a href="{{site.baseurl}}/docs/3.5.8/">Spark 3.5.8</a></li>
+  <li><a href="{{site.baseurl}}/docs/3.5.7/">Spark 3.5.7</a></li>
+  <li><a href="{{site.baseurl}}/docs/3.5.6/">Spark 3.5.6</a></li>
+  <li><a href="{{site.baseurl}}/docs/3.5.5/">Spark 3.5.5</a></li>
+  <li><a href="{{site.baseurl}}/docs/3.5.4/">Spark 3.5.4</a></li>
+  <li><a href="{{site.baseurl}}/docs/3.5.3/">Spark 3.5.3</a></li>
+  <li><a href="{{site.baseurl}}/docs/3.5.2/">Spark 3.5.2</a></li>
+  <li><a href="{{site.baseurl}}/docs/3.5.1/">Spark 3.5.1</a></li>
+  <li><a href="{{site.baseurl}}/docs/3.5.0/">Spark 3.5.0</a></li>
+  <li><a href="{{site.baseurl}}/docs/3.4.4/">Spark 3.4.4</a></li>
+  <li><a href="{{site.baseurl}}/docs/3.4.3/">Spark 3.4.3</a></li>
+  <li><a href="{{site.baseurl}}/docs/3.4.2/">Spark 3.4.2</a></li>
+  <li><a href="{{site.baseurl}}/docs/3.4.1/">Spark 3.4.1</a></li>
   <li><a href="{{site.baseurl}}/docs/3.4.0/">Spark 3.4.0</a></li>
+  <li><a href="{{site.baseurl}}/docs/3.3.4/">Spark 3.3.4</a></li>
+  <li><a href="{{site.baseurl}}/docs/3.3.3/">Spark 3.3.3</a></li>
   <li><a href="{{site.baseurl}}/docs/3.3.2/">Spark 3.3.2</a></li>
   <li><a href="{{site.baseurl}}/docs/3.3.1/">Spark 3.3.1</a></li>
   <li><a href="{{site.baseurl}}/docs/3.3.0/">Spark 3.3.0</a></li>
@@ -76,6 +105,17 @@ navigation:
 <p>Documentation for preview releases:</p>
 
 <ul>
+  <li><a href="{{site.baseurl}}/docs/4.2.0-preview5/">Spark 4.2.0-preview5</a></li>
+  <li><a href="{{site.baseurl}}/docs/4.2.0-preview4/">Spark 4.2.0-preview4</a></li>
+  <li><a href="{{site.baseurl}}/docs/4.2.0-preview3/">Spark 4.2.0-preview3</a></li>
+  <li><a href="{{site.baseurl}}/docs/4.2.0-preview2/">Spark 4.2.0-preview2</a></li>
+  <li><a href="{{site.baseurl}}/docs/4.2.0-preview1/">Spark 4.2.0-preview1</a></li>
+  <li><a href="{{site.baseurl}}/docs/4.1.0-preview4/">Spark 4.1.0-preview4</a></li>
+  <li><a href="{{site.baseurl}}/docs/4.1.0-preview3/">Spark 4.1.0-preview3</a></li>
+  <li><a href="{{site.baseurl}}/docs/4.1.0-preview2/">Spark 4.1.0-preview2</a></li>
+  <li><a href="{{site.baseurl}}/docs/4.1.0-preview1/">Spark 4.1.0-preview1</a></li>
+  <li><a href="{{site.baseurl}}/docs/4.0.0-preview2/">Spark 4.0.0 preview2</a></li>
+  <li><a href="{{site.baseurl}}/docs/4.0.0-preview1/">Spark 4.0.0 preview1</a></li>
   <li><a href="{{site.baseurl}}/docs/3.0.0-preview2/">Spark 3.0.0 preview2</a></li>
   <li><a href="{{site.baseurl}}/docs/3.0.0-preview/">Spark 3.0.0 preview</a></li>
   <li><a href="{{site.baseurl}}/docs/2.0.0-preview/">Spark 2.0.0 preview</a></li>
@@ -191,18 +231,25 @@ Slides, videos and EC2-based exercises from each of these are available online:
 
 <h3>Books</h3>
 <ul>
-  <li><a href="http://shop.oreilly.com/product/0636920028512.do">Learning Spark</a>, by Holden Karau, Andy Konwinski, Patrick Wendell and Matei Zaharia (O'Reilly Media)</li>
-  <li><a href="http://www.manning.com/bonaci/">Spark in Action</a>, by Marko Bonaci and Petar Zecevic (Manning)</li>
-  <li><a href="http://shop.oreilly.com/product/0636920035091.do">Advanced Analytics with Spark</a>, by Juliet Hougland, Uri Laserson, Sean Owen, Sandy Ryza and Josh Wills (O'Reilly Media)</li>
-  <li><a href="https://www.manning.com/books/spark-graphx-in-action">Spark GraphX in Action</a>, by Michael Malak (Manning)</li>
+  <li><a href="https://www.oreilly.com/library/view/learning-spark-2nd/9781492050032/">Learning Spark, 2nd Edition</a>, by Jules S. Damji, Brooke Wenig, Tathagata Das and Denny Lee (O'Reilly Media)</li>
+  <li><a href="https://www.oreilly.com/library/view/high-performance-spark/9781098145842/">High Performance Spark, 2nd edition</a> by Holden Karau Adi Polak, and Rachel Warren (O'Reilly Media)</li>
+  <li><a href="https://www.oreilly.com/library/view/spark-the-definitive/9781491912201/">Spark: The Definitive Guide</a>, by Bill Chambers and Matei Zaharia (O'Reilly Media)</li>
+  <li><a href="https://www.manning.com/books/spark-in-action-second-edition">Spark in Action, 2nd Edition</a>, by Jean-Georges Perrin (Manning)</li>
+  <li><a href="https://www.oreilly.com/library/view/advanced-analytics-with/9781491972946/">Advanced Analytics with Spark, 2nd Edition</a>, by Josh Wills, Sean Owen, Sandy Ryza and Uri Laserson (O'Reilly Media)</li>
+  <li><a href="https://www.manning.com/books/spark-graphx-in-action">Spark GraphX in Action</a>, by Michael Malak and Robin East (Manning)</li>
   <li><a href="https://www.packtpub.com/big-data-and-business-intelligence/fast-data-processing-spark-second-edition">Fast Data Processing with Spark</a>, by Krishna Sankar and Holden Karau (Packt Publishing)</li>
-  <li><a href="https://www.packtpub.com/big-data-and-business-intelligence/machine-learning-spark">Machine Learning with Spark</a>, by Nick Pentreath (Packt Publishing)</li>
+  <li><a href="https://www.packtpub.com/en-us/product/machine-learning-with-spark-9781785889936?utm_source=chatgpt.com">Machine Learning with Spark: Develop intelligent, distributed machine learning systems , Second Edition</a>, by Rajdeep Dua, Manpreet Singh Ghotra, Brian O'Neill, Stephen Boesch, Nick Pentreath (Packt Publishing)</li>
   <li><a href="https://www.packtpub.com/big-data-and-business-intelligence/spark-cookbook">Spark Cookbook</a>, by Rishi Yadav (Packt Publishing)</li>
   <li><a href="https://www.packtpub.com/big-data-and-business-intelligence/apache-spark-graph-processing">Apache Spark Graph Processing</a>, by Rindra Ramamonjison (Packt Publishing)</li>
   <li><a href="https://www.packtpub.com/big-data-and-business-intelligence/mastering-apache-spark">Mastering Apache Spark</a>, by Mike Frampton (Packt Publishing)</li>
+  <li><a href="https://www.oreilly.com/library/view/mastering-spark-with/9781492046363/">Mastering Spark with R</a> by Javier Luraschi, Kevin Kuo, and Edgar Ruiz (O'Reilly Media)</li>
   <li><a href="http://www.apress.com/9781484209653">Big Data Analytics with Spark: A Practitioner's Guide to Using Spark for Large Scale Data Analysis</a>, by Mohammed Guller (Apress)</li>
   <li><a href="https://www.packtpub.com/big-data-and-business-intelligence/large-scale-machine-learning-spark">Large Scale Machine Learning with Spark</a>, by Md. Rezaul Karim, Md. Mahedi Kaysar (Packt Publishing)</li>
   <li><a href="https://www.packtpub.com/big-data-and-business-intelligence/big-data-analytics">Big Data Analytics with Spark and Hadoop</a>, by Venkat Ankam (Packt Publishing)</li>
+  <li><a href="https://www.distributedcomputing4kids.com">Distributed Computing 4 Kids and Executives: Solving Hard Problems with Garden Gnomes and ASF Spark</a>, by Holden Karau, Johnny Kiotis, Annalise Cole, and Toria Laughlin (Pigs Can Fly Labs)</li>
+  <li><a href="https://www.packtpub.com/en-us/product/pyspark-cookbook-9781788834254">PySpark Cookbook: Over 60 recipes for implementing big data processing and analytics using Apache Spark and Python</a> by Tomasz Drabas and Denny Lee (Packt Publishing)</li>
+  <li><a href="https://www.oreilly.com/library/view/stream-processing-with/9781491944233/">Stream Processing with Apache Spark</a> by Gerard Maas and Francois Garillot (O'Reilly Media)</li>
+  <li><a href="https://www.oreilly.com/library/view/data-algorithms-with/9781492082378/">Data Algorithms With Spark</a> by Mahmoud Parsian (O'Reilly Media)</li>
 </ul>
 
 <h3>Examples</h3>

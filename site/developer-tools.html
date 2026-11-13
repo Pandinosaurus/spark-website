@@ -14,8 +14,7 @@
 
   
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link href="/css/bootstrap.min.css" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
@@ -23,6 +22,23 @@
   <!-- Code highlighter CSS -->
   <link href="/css/pygments-default.css" rel="stylesheet">
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+  <!-- Matomo -->
+  <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(["disableCookies"]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u="https://analytics.apache.org/";
+      _paq.push(['setTrackerUrl', u+'matomo.php']);
+      _paq.push(['setSiteId', '40']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
+  <!-- End Matomo Code -->
 </head>
 <body class="global">
 <nav class="navbar navbar-expand-lg navbar-dark p-0 px-4" style="background: #1D6890;">
@@ -46,7 +62,9 @@
         </a>
         <ul class="dropdown-menu" aria-labelledby="libraries">
           <li><a class="dropdown-item" href="/sql/">SQL and DataFrames</a></li>
+          <li><a class="dropdown-item" href="/spark-connect/">Spark Connect</a></li>
           <li><a class="dropdown-item" href="/streaming/">Spark Streaming</a></li>
+          <li><a class="dropdown-item" href="/pandas-on-spark/">pandas on Spark</a></li>
           <li><a class="dropdown-item" href="/mllib/">MLlib (machine learning)</a></li>
           <li><a class="dropdown-item" href="/graphx/">GraphX (graph)</a></li>
           <li>
@@ -98,6 +116,20 @@
           <li><a class="dropdown-item" href="/security.html">Security</a></li>
         </ul>
       </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="github" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          GitHub
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="github">
+          <li><a class="dropdown-item" href="https://github.com/apache/spark">spark</a></li>
+          <li><a class="dropdown-item" href="https://github.com/apache/spark-connect-go">spark-connect-go</a></li>
+          <li><a class="dropdown-item" href="https://github.com/apache/spark-connect-rust">spark-connect-rust</a></li>
+          <li><a class="dropdown-item" href="https://github.com/apache/spark-connect-swift">spark-connect-swift</a></li>
+          <li><a class="dropdown-item" href="https://github.com/apache/spark-docker">spark-docker</a></li>
+          <li><a class="dropdown-item" href="https://github.com/apache/spark-kubernetes-operator">spark-kubernetes-operator</a></li>
+          <li><a class="dropdown-item" href="https://github.com/apache/spark-website">spark-website</a></li>
+        </ul>
+      </li>
     </ul>
     <ul class="navbar-nav ml-auto">
       <li class="nav-item dropdown">
@@ -111,7 +143,6 @@
           <li><a class="dropdown-item"
                  href="https://www.apache.org/foundation/sponsorship.html">Sponsorship</a></li>
           <li><a class="dropdown-item" href="https://www.apache.org/foundation/thanks.html">Thanks</a></li>
-          <li><a class="dropdown-item" href="https://www.apache.org/security/">Security</a></li>
           <li><a class="dropdown-item" href="https://www.apache.org/events/current-event">Event</a></li>
         </ul>
       </li>
@@ -121,37 +152,40 @@
 
 <div class="container">
   <div class="row mt-4">
-    <div class="col-12 col-md-9">
+    <div class="col-12 col-md-9" id="content">
+      
+      <h1>Useful Developer Tools</h1>
+      
       <h2>Test coverage</h2>
 
 <p>Apache Spark community uses various resources to maintain the community test coverage.</p>
 
-<h3 id="github_action">GitHub Action</h3>
+<h3 id="github_action">GitHub Actions</h3>
 
-<p><a href="https://github.com/apache/spark/actions">GitHub Action</a> provides the following on Ubuntu 22.04.</p>
+<p><a href="https://github.com/apache/spark/actions">GitHub Actions</a> provides the following on Ubuntu 22.04.</p>
+
+<h4 id="apache-spark-4">Apache Spark 4</h4>
+
 <ul>
-  <li>Scala 2.12/2.13 SBT build with Java 8</li>
-  <li>Scala 2.12 Maven build with Java 11/17</li>
-  <li>Java/Scala/Python/R unit tests with Java 8/Scala 2.12/SBT</li>
+  <li>Scala 2.13 SBT build with Java 17</li>
+  <li>Scala 2.13 Maven build with Java 17/21</li>
+  <li>Java/Scala/Python/R unit tests with Java 17/Scala 2.13/SBT</li>
   <li>TPC-DS benchmark with scale factor 1</li>
   <li>JDBC Docker integration tests</li>
   <li>Kubernetes integration tests</li>
-  <li>Daily Java/Scala/Python/R unit tests with Java 11/17 and Scala 2.12/SBT</li>
+  <li>Daily Java/Scala/Python/R unit tests with Java 21 and Scala 2.13/SBT</li>
 </ul>
 
-<h3 id="appveyor">AppVeyor</h3>
+<h4 id="apache-spark-3">Apache Spark 3</h4>
 
-<p><a href="https://ci.appveyor.com/project/ApacheSoftwareFoundation/spark">AppVeyor</a> provides the following on Windows.</p>
 <ul>
-  <li>R unit tests with Java 8/Scala 2.12/SBT</li>
-</ul>
-
-<h3 id="scaleway">Scaleway</h3>
-
-<p><a href="https://www.scaleway.com">Scaleway</a> provides the following on MacOS and Apple Silicon.</p>
-<ul>
-  <li><a href="https://apache-spark.s3.fr-par.scw.cloud/index.html">Java/Scala/Python/R unit tests with Java 17/Scala 2.12/SBT</a></li>
-  <li>K8s integration tests (TBD)</li>
+  <li>Scala 2.12 SBT build with Java 8</li>
+  <li>Scala 2.12 Maven build with Java 11/17</li>
+  <li>Java/Scala/Python/R unit tests with Java 8/Scala 2.12/SBT</li>
+  <li>Kubernetes integration tests</li>
+  <li>Daily Java/Scala/Python/R unit tests with Java 8 and Scala 2.13/SBT</li>
+  <li>Daily JDBC Docker integration tests with Java 8 and Scala 2.13/SBT</li>
+  <li>Daily TPC-DS benchmark with scale factor 1 with Java 8 and Scala 2.12/SBT</li>
 </ul>
 
 <h2>Useful developer tools</h2>
@@ -233,7 +267,7 @@ $ build/mvn package -DskipTests -pl core
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ build/sbt "core/testOnly *DAGSchedulerSuite -- -z SPARK-12345"
 </code></pre></div></div>
 
-<p>For more about how to run individual tests with sbt, see the <a href="https://www.scala-sbt.org/0.13/docs/Testing.html">sbt documentation</a>.</p>
+<p>For more about how to run individual tests with sbt, see the <a href="https://www.scala-sbt.org/1.x/docs/Testing.html">sbt documentation</a>.</p>
 
 <h4>Testing with Maven</h4>
 
@@ -297,11 +331,16 @@ Generating HTML files for PySpark coverage under /.../spark/python/test_coverage
 
 <h4>Testing K8S</h4>
 
-<p>Although GitHub Action provide both K8s unit test and integration test coverage, you can run it locally. For example, Volcano batch scheduler integration test should be done manually. Please refer the integration test documentation for the detail.</p>
+<p>Although GitHub Actions provide both K8s unit test and integration test coverage, you can run it locally. For example, Volcano batch scheduler integration test should be done manually. Please refer the integration test documentation for the detail.</p>
 
-<p>https://github.com/apache/spark/blob/master/resource-managers/kubernetes/integration-tests/README.md</p>
+<p><a href="https://github.com/apache/spark/blob/master/resource-managers/kubernetes/integration-tests/README.md">https://github.com/apache/spark/blob/master/resource-managers/kubernetes/integration-tests/README.md</a></p>
 
-<h3>Testing with GitHub actions workflow</h3>
+<h4>Running the Docker integration tests</h4>
+
+<p>Docker integration tests are covered by GitHub Actions. However, you can run it locally to speedup deveplopment and testing.
+Please refer the <a href="https://github.com/apache/spark/blob/master/connector/docker-integration-tests/README.md">Docker integration test documentation</a> for the detail.</p>
+
+<h3>Testing with GitHub Actions workflow</h3>
 
 <p>Apache Spark leverages GitHub Actions that enables continuous integration and a wide range of automation. Apache Spark repository provides several GitHub Actions workflows for developers to run before creating a pull request.</p>
 
@@ -352,7 +391,7 @@ sufficient to run a test from the command line:</p>
 
 <h3>Binary compatibility</h3>
 
-<p>To ensure binary compatibility, Spark uses <a href="https://github.com/typesafehub/migration-manager">MiMa</a>.</p>
+<p>To ensure binary compatibility, Spark uses <a href="https://github.com/lightbend/mima">MiMa</a>.</p>
 
 <h4>Ensuring binary compatibility</h4>
 
@@ -446,18 +485,35 @@ your code.  It can be configured to match the import ordering from the style gui
 
 <h3>IDE setup</h3>
 
+<p>Make sure you have a clean start before setting up the IDE: A clean git clone of the Spark repo, install the latest 
+version of the IDE.</p>
+
+<p>If something goes wrong, clear the build outputs by <code class="language-plaintext highlighter-rouge">./build/sbt clean</code> and <code class="language-plaintext highlighter-rouge">./build/mvn clean</code>, clear the m2 
+cache by <code class="language-plaintext highlighter-rouge">rm -rf ~/.m2/repository/*</code>, re-import the project into the IDE cleanly and try again.</p>
+
 <h4>IntelliJ</h4>
 
 <p>While many of the Spark developers use SBT or Maven on the command line, the most common IDE we 
-use is IntelliJ IDEA. You can get the community edition for free (Apache committers can get 
-free IntelliJ Ultimate Edition licenses) and install the JetBrains Scala plugin from <code class="language-plaintext highlighter-rouge">Preferences &gt; Plugins</code>.</p>
+use is IntelliJ IDEA. You need to install the JetBrains Scala plugin from <code class="language-plaintext highlighter-rouge">Preferences &gt; Plugins</code>.</p>
+
+<p>Due to the complexity of Spark build, please modify the following global settings of IntelliJ IDEA:</p>
+
+<ul>
+  <li>Go to <code class="language-plaintext highlighter-rouge">Settings -&gt; Build, Execution, Deployment -&gt; Build Tools -&gt; Maven -&gt; Importing</code>, make sure you 
+choose &#8220;Detect automatically&#8221; for <code class="language-plaintext highlighter-rouge">Generated source folders</code>, and choose &#8220;generate sources&#8221; for 
+<code class="language-plaintext highlighter-rouge">Phase to be used for folders update</code>.</li>
+  <li>Go to <code class="language-plaintext highlighter-rouge">Settings -&gt; Build, Execution, Deployment -&gt; Compiler -&gt; Scala Compiler -&gt; Scala Compiler Server</code>, 
+pick a large enough number for <code class="language-plaintext highlighter-rouge">Maximum heap size, MB</code>, such as &#8220;4000&#8221;.</li>
+</ul>
 
 <p>To create a Spark project for IntelliJ:</p>
 
 <ul>
   <li>Download IntelliJ and install the 
 <a href="https://confluence.jetbrains.com/display/SCA/Scala+Plugin+for+IntelliJ+IDEA">Scala plug-in for IntelliJ</a>.</li>
-  <li>Go to <code class="language-plaintext highlighter-rouge">File -&gt; Import Project</code>, locate the spark source directory, and select &#8220;Maven Project&#8221;.</li>
+  <li>Go to <code class="language-plaintext highlighter-rouge">File -&gt; Import Project</code>, locate the spark source directory, and select &#8220;Maven Project&#8221;. It&#8217;s important to
+pick Maven instead of sbt here, as Spark has complicated building logic that is implemented for sbt using Scala code
+in <code class="language-plaintext highlighter-rouge">SparkBuilder.scala</code>, and IntelliJ IDEA cannot understant it well.</li>
   <li>In the Import wizard, it&#8217;s fine to leave settings at their default. However it is usually useful 
 to enable &#8220;Import Maven projects automatically&#8221;, since changes to the project structure will 
 automatically update the IntelliJ project.</li>
@@ -554,6 +610,29 @@ debug in IntelliJ as usual.</p>
 <p>To exit remote debug mode (so that you don&#8217;t have to keep starting the remote debugger),
 type &#8220;session clear&#8221; in SBT console while you&#8217;re in a project.</p>
 
+<h4>Cursor/VS Code</h4>
+
+<p>You can leverage the power of <em>Cursor</em> or <em>VS Code</em> for Spark development by using the Metals extension. 
+Metals provides robust Scala support through the Build Server Protocol (BSP).</p>
+
+<p>Initial setup:</p>
+<ul>
+  <li><em>Install Metals</em>: Search for and install the Scala (Metals) extension from the Marketplace.</li>
+  <li><em>Open Project</em>: Open your Spark root directory.</li>
+  <li><em>Select Build Tool</em>: When prompted by the popup in the bottom-left corner, select sbt to read build definition.</li>
+  <li><em>Confirm Build Server</em>: Metals defaults to using Bloop as the build server. Do not change this setting, as Bloop provides the fastest compilation and best integration for local development. Open the Command Palette (Cmd+Shift+P or Ctrl+Shift+P), run <code class="language-plaintext highlighter-rouge">Metals: Run doctor</code>, and verify the status dashboard. Ensure it shows: <code class="language-plaintext highlighter-rouge">Build definition is coming from sbt</code> and <code class="language-plaintext highlighter-rouge">Build server currently being used is Bloop</code>.</li>
+</ul>
+
+<p>If you encounter compilation errors or the IDE fails to recognize symbols, follow these steps to perform a clean import:</p>
+<ol>
+  <li><em>Stop Bloop Server</em>: Run the following command in your terminal to stop the bloop server: <code class="language-plaintext highlighter-rouge">pkill -f "bloop.BloopServer"</code>. If you have installed bloop CLI you can run <code class="language-plaintext highlighter-rouge">bloop exit</code> instead.</li>
+  <li><em>Clean Workspace</em>: Run the following command in your terminal to remove cached build metadata: <code class="language-plaintext highlighter-rouge">rm -rf .bloop/ .metals/ .bsp/</code>.</li>
+  <li><em>Reload Window</em>: Run <code class="language-plaintext highlighter-rouge">Developer: Reload Window</code> from the Command Palette, and select sbt when the prompt reappears.</li>
+  <li><em>Import Build</em>: Run <code class="language-plaintext highlighter-rouge">Metals: Import build</code> and wait for the process to complete.</li>
+  <li><em>Connect to Server</em>: Run <code class="language-plaintext highlighter-rouge">Metals: Connect to build server</code> and wait for the process to complete.</li>
+  <li><em>Confirm</em>: Run <code class="language-plaintext highlighter-rouge">Metals: Run doctor</code> and verify the status dashboard.</li>
+</ol>
+
 <h4>Eclipse</h4>
 
 <p>Eclipse can be used to develop and test Spark. The following configuration is known to work:</p>
@@ -591,6 +670,24 @@ in the Eclipse install directory. Increase the following setting as needed:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>--launcher.XXMaxPermSize
 256M
+</code></pre></div></div>
+
+<h4>IDE with sbt</h4>
+
+<p>When you use IDEs like VSCode or Cursor and you build from terminal with <code class="language-plaintext highlighter-rouge">sbt</code>,
+a common issue you&#8217;ll encounter is something like</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>java.lang.RuntimeException: Failed to find name hashes for
+</code></pre></div></div>
+
+<p>This is because multiple instances are trying to build the project simultaneously. Normally
+the culprit is your Java/Scala plugin in your IDEs.</p>
+
+<p>In order to fix this, first you need to disable auto-build of your plugins. Then you need to
+clear all the artifacts with <code class="language-plaintext highlighter-rouge">sbt clean</code>. You&#8217;ll also need to clear cache in</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>~/.m2
+~/.ivy2/
 </code></pre></div></div>
 
 <p><a name="nightly-builds"></a></p>
@@ -655,7 +752,16 @@ cluster with the same name, your security group settings will be re-used.</li>
 <p>When running Spark tests through SBT, add <code class="language-plaintext highlighter-rouge">javaOptions in Test += "-agentpath:/path/to/yjp"</code>
 to <code class="language-plaintext highlighter-rouge">SparkBuild.scala</code> to launch the tests with the YourKit profiler agent enabled.<br />
 The platform-specific paths to the profiler agents are listed in the 
-<a href="http://www.yourkit.com/docs/80/help/agent.jsp">YourKit documentation</a>.</p>
+<a href="https://www.yourkit.com/docs/java/help/agent.jsp">YourKit documentation</a>.</p>
+
+<h2>Generative tooling usage</h2>
+
+<p>In general, the ASF allows contributions co-authored using generative AI tools. However, there are several considerations when you submit a patch containing generated content.</p>
+
+<p>Foremost, you are required to disclose usage of such tool. Furthermore, you are responsible for ensuring that the terms and conditions of the tool in question are
+compatible with usage in an Open Source project and inclusion of the generated content doesn&#8217;t pose a risk of copyright violation.</p>
+
+<p>Please refer to <a href="https://www.apache.org/legal/generative-tooling.html">The ASF Generative Tooling Guidance</a> for details and developments.</p>
 
     </div>
     <div class="col-12 col-md-3">
@@ -663,17 +769,17 @@ The platform-specific paths to the profiler agents are listed in the
         <h5>Latest News</h5>
         <ul class="list-unstyled">
           
-          <li><a href="/news/spark-3-4-0-released.html">Spark 3.4.0 released</a>
-            <span class="small">(Apr 13, 2023)</span></li>
+          <li><a href="/news/spark-4-3-0-released.html">Spark 4.3.0 released</a>
+            <span class="small">(Oct 30, 2026)</span></li>
           
-          <li><a href="/news/spark-3-2-4-released.html">Spark 3.2.4 released</a>
-            <span class="small">(Apr 13, 2023)</span></li>
+          <li><a href="/news/spark-4-2-1-released.html">Spark 4.2.1 released</a>
+            <span class="small">(Oct 27, 2026)</span></li>
           
-          <li><a href="/news/spark-3-3-2-released.html">Spark 3.3.2 released</a>
-            <span class="small">(Feb 17, 2023)</span></li>
+          <li><a href="/news/spark-4-1-4-released.html">Spark 4.1.4 released</a>
+            <span class="small">(Oct 27, 2026)</span></li>
           
-          <li><a href="/news/spark-3-2-3-released.html">Spark 3.2.3 released</a>
-            <span class="small">(Nov 28, 2022)</span></li>
+          <li><a href="/news/spark-4-0-5-released.html">Spark 4.0.5 released</a>
+            <span class="small">(Oct 27, 2026)</span></li>
           
         </ul>
         <p class="small" style="text-align: right;"><a href="/news/index.html">Archive</a></p>
@@ -714,11 +820,16 @@ The platform-specific paths to the profiler agents are listed in the
   </footer>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/jquery.js"></script>
+<script src="/js/jquery.js"></script>
+<script src="/js/bootstrap.bundle.min.js"></script>
 <script src="/js/lang-tabs.js"></script>
 <script src="/js/downloads.js"></script>
+
+<script src="/js/vendor/anchor.min.js"></script>
+<script>
+  // Display anchor links when hovering over headings.
+  // See: https://www.bryanbraun.com/anchorjs/
+  anchors.add('#content :is(h2, h3, h4, h5, h6)');
+</script>
 </body>
 </html>

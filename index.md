@@ -88,11 +88,16 @@ navigation:
         <div class="tab-content py-5 spark-install" id="nav-tabContent">
             <div class="tab-pane fade show active" id="nav-python" role="tabpanel" aria-labelledby="nav-python-tab">
                 <div class="mb-2 title">Run now</div>
-                <div style="font-size: 16px;">Installing with 'pip'
+                <div style="font-size: 16px;">Install with 'pip'
                 </div>
                 <div class="code">
                     <p>$ pip install pyspark</p>
                     <p>$ pyspark</p>
+                </div>
+                <div style="font-size: 16px;">Use the official Docker image
+                </div>
+                <div class="code">
+                    <p>$ docker run -it --rm spark:python3 /opt/spark/bin/pyspark</p>
                 </div>
                 <div class="examples mt-5">
                     <div class="window"><span class="circle red"></span><span class="circle yellow"></span><span
@@ -155,7 +160,7 @@ filtered_df.summary().show()
             <div class="tab-pane fade" id="nav-sql" role="tabpanel" aria-labelledby="nav-sql-tab">
                 <div class="mb-2 title">Run now</div>
                 <div class="code">
-                    <p>$ docker run -it --rm apache/spark /opt/spark/bin/spark-sql</p>
+                    <p>$ docker run -it --rm spark /opt/spark/bin/spark-sql</p>
                     <p>spark-sql></p>
                 </div>
                 <div class="examples mt-5">
@@ -175,7 +180,7 @@ FROM json.`logs.json`
             <div class="tab-pane fade" id="nav-scala" role="tabpanel" aria-labelledby="nav-scala-tab">
                 <div class="mb-2 title">Run now</div>
                 <div class="code">
-                    <p>$ docker run -it --rm apache/spark /opt/spark/bin/spark-shell</p>
+                    <p>$ docker run -it --rm spark /opt/spark/bin/spark-shell</p>
                     <p>scala></p>
                 </div>
                 <div class="examples mt-5">
@@ -193,7 +198,7 @@ df.where("age > 21")
             <div class="tab-pane fade" id="nav-java" role="tabpanel" aria-labelledby="nav-java-tab">
                 <div class="mb-2 title">Run now</div>
                 <div class="code">
-                    <p>$ docker run -it --rm apache/spark /opt/spark/bin/spark-shell</p>
+                    <p>$ docker run -it --rm spark /opt/spark/bin/spark-shell</p>
                     <p>scala></p>
                 </div>
                 <div class="examples mt-5">
@@ -210,7 +215,7 @@ df.where("age > 21")
             <div class="tab-pane fade" id="nav-r" role="tabpanel" aria-labelledby="nav-r-tab">
                 <div class="mb-2 title">Run now</div>
                 <div class="code">
-                    <p>$ SPARK-HOME/bin/sparkR</p>
+                    <p>$ docker run -it --rm spark:r /opt/spark/bin/sparkR</p>
                     <p>></p>
                 </div>
                 <div class="examples mt-5">
@@ -252,39 +257,40 @@ head(select(df, df$name.first))
                 <div class="text-center ecosystem-title">Data science and Machine learning
                 </div>
                 <div class="row d-flex align-items-center">
-                    <div class="col-12 col-md-4"><img src="{{site.baseurl}}/images/scikit-learn.png" height="90" width="166"/></div>
-                    <div class="col-12 col-md-4"><img src="{{site.baseurl}}/images/pandas.png" height="90" width="166"/></div>
-                    <div class="col-12 col-md-4"><img src="{{site.baseurl}}/images/tf_logo_social.png" height="90" width="166"/></div>
-                    <div class="col-12 col-md-4"><img src="{{site.baseurl}}/images/pytorch.png" height="90" width="166"/></div>
-                    <div class="col-12 col-md-4"><img src="{{site.baseurl}}/images/mlflow-logo.png" height="90" width="166"/></div>
-                    <div class="col-12 col-md-4"><img src="{{site.baseurl}}/images/r_logo.png" height="90" width="166"/></div>
-                    <div class="col-12 col-md-4"><img src="{{site.baseurl}}/images/numpy.png" height="90" width="166"/></div>
+                    <div class="col-12 col-md-4"><img src="{{site.baseurl}}/images/scikit-learn.png" height="90" width="166" alt="scikit learn"/></div>
+                    <div class="col-12 col-md-4"><img src="{{site.baseurl}}/images/pandas.png" height="90" width="166" alt="pandas"/></div>
+                    <div class="col-12 col-md-4"><img src="{{site.baseurl}}/images/tf_logo_social.png" height="90" width="166" alt="TensorFlow"/></div>
+                    <div class="col-12 col-md-4"><img src="{{site.baseurl}}/images/pytorch.png" height="90" width="166" alt="PyTorch"/></div>
+                    <div class="col-12 col-md-4"><img src="{{site.baseurl}}/images/mlflow-logo.png" height="90" width="166" alt="mlflow"/></div>
+                    <div class="col-12 col-md-4"><img src="{{site.baseurl}}/images/r_logo.png" height="90" width="166" alt="R"/></div>
+                    <div class="col-12 col-md-4"><img src="{{site.baseurl}}/images/numpy.png" height="90" width="166" alt="NumPy"/></div>
                 </div>
             </div>
             <div class="col-12 col-md-12 col-lg-5 mt-5 mt-md-5 mt-lg-0 mx-auto">
                 <div class="text-center ecosystem-title">SQL analytics and BI</div>
                 <div class="row d-flex align-items-center">
-                    <div class="col-12 col-md-4"><img src="{{site.baseurl}}/images/superset.png" height="90" width="166"/></div>
-                    <div class="col-12 col-md-4"><img src="{{site.baseurl}}/images/PowerBI-Logo-Square-Insight-Platforms.png" height="90" width="166"/></div>
-                    <div class="col-12 col-md-4"><img src="{{site.baseurl}}/images/looker_logo.png" height="90" width="166"/></div>
-                    <div class="col-12 col-md-4"><img src="{{site.baseurl}}/images/redash.png" height="90" width="166"/></div>
-                    <div class="col-12 col-md-4"><img src="{{site.baseurl}}/images/tableau-logo-tableau-software.png" height="90" width="166"/></div>
-                    <div class="col-12 col-md-4"><img src="{{site.baseurl}}/images/dbt.png" height="90" width="166"/></div>
+                    <div class="col-12 col-md-4"><img src="{{site.baseurl}}/images/superset.png" height="90" width="166" alt="Apache Superset"/></div>
+                    <div class="col-12 col-md-4"><img src="{{site.baseurl}}/images/PowerBI-Logo-Square-Insight-Platforms.png" height="90" width="166" alt="PowerBI"/></div>
+                    <div class="col-12 col-md-4"><img src="{{site.baseurl}}/images/looker_logo.png" height="90" width="166" alt="Looker"/></div>
+                    <div class="col-12 col-md-4"><img src="{{site.baseurl}}/images/redash.png" height="90" width="166" alt="Redash"/></div>
+                    <div class="col-12 col-md-4"><img src="{{site.baseurl}}/images/tableau-logo-tableau-software.png" height="90" width="166" alt="Tableau"/></div>
+                    <div class="col-12 col-md-4"><img src="{{site.baseurl}}/images/dbt.png" height="90" width="166" alt="dbt"/></div>
                 </div>
             </div>
             <div class="col-12 col-md-12 col-lg-10 mt-5 pt-5 mx-auto">
                 <div class="text-center ecosystem-title">Storage and Infrastructure</div>
                 <div class="row d-flex align-items-center">
-                    <div class="col"><img src="{{site.baseurl}}/images/Elasticsearch.png" height="90" width="166"/></div>
-                    <div class="col"><img src="{{site.baseurl}}/images/mongo.png" height="90" width="166"/></div>
-                    <div class="col"><img src="{{site.baseurl}}/images/kafka.png" height="90" width="166"/></div>
-                    <div class="col"><img src="{{site.baseurl}}/images/delta-lake-logo.png" height="90" width="166"/></div>
-                    <div class="col"><img src="{{site.baseurl}}/images/kubernetes-horizontal-color.png" height="90" width="166"/></div>
-                    <div class="col"><img src="{{site.baseurl}}/images/AirflowLogo.png" height="90" width="166"/></div>
-                    <div class="col"><img src="{{site.baseurl}}/images/Apache_Parquet_logo.png" height="90" width="166"/></div>
-                    <div class="col"><img src="{{site.baseurl}}/images/sqlserver.png" height="90" width="166"/></div>
-                    <div class="col"><img src="{{site.baseurl}}/images/1280px-Cassandra_logo.png" height="90" width="166"/></div>
-                    <div class="col"><img src="{{site.baseurl}}/images/Apache_Orc_logo.png" height="90" width="166"/></div>
+                    <div class="col"><img src="{{site.baseurl}}/images/Elasticsearch.png" height="90" width="166" alt="Elasticsearch"/></div>
+                    <div class="col"><img src="{{site.baseurl}}/images/mongo.png" height="90" width="166" alt="mongoDB"/></div>
+                    <div class="col"><img src="{{site.baseurl}}/images/kafka.png" height="90" width="166" alt="Apache Kafka"/></div>
+                    <div class="col"><img src="{{site.baseurl}}/images/delta-lake-logo.png" height="90" width="166" alt="Delta Lake"/></div>
+                    <div class="col"><img src="{{site.baseurl}}/images/kubernetes-horizontal-color.png" height="90" width="166" alt="Kubernetes"/></div>
+                    <div class="col"><img src="{{site.baseurl}}/images/AirflowLogo.png" height="90" width="166" alt="Apache Airflow"/></div>
+                    <div class="col"><img src="{{site.baseurl}}/images/Apache_Parquet_logo.png" height="90" width="166" alt="Parquet"/></div>
+                    <div class="col"><img src="{{site.baseurl}}/images/sqlserver.png" height="90" width="166" alt="SQL Server"/></div>
+                    <div class="col"><img src="{{site.baseurl}}/images/1280px-Cassandra_logo.png" height="90" width="166" alt="Cassandra"/></div>
+                    <div class="col"><img src="{{site.baseurl}}/images/Apache_Iceberg_logo.png" height="" width="166" alt="Apache Iceberg"/></div>
+                    <div class="col"><img src="{{site.baseurl}}/images/Apache_Orc_logo.png" height="90" width="166" alt="Apache Orc"/></div>
                 </div>
             </div>
         </div>

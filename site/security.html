@@ -14,8 +14,7 @@
 
   
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link href="/css/bootstrap.min.css" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
@@ -23,6 +22,23 @@
   <!-- Code highlighter CSS -->
   <link href="/css/pygments-default.css" rel="stylesheet">
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+  <!-- Matomo -->
+  <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(["disableCookies"]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u="https://analytics.apache.org/";
+      _paq.push(['setTrackerUrl', u+'matomo.php']);
+      _paq.push(['setSiteId', '40']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
+  <!-- End Matomo Code -->
 </head>
 <body class="global">
 <nav class="navbar navbar-expand-lg navbar-dark p-0 px-4" style="background: #1D6890;">
@@ -46,7 +62,9 @@
         </a>
         <ul class="dropdown-menu" aria-labelledby="libraries">
           <li><a class="dropdown-item" href="/sql/">SQL and DataFrames</a></li>
+          <li><a class="dropdown-item" href="/spark-connect/">Spark Connect</a></li>
           <li><a class="dropdown-item" href="/streaming/">Spark Streaming</a></li>
+          <li><a class="dropdown-item" href="/pandas-on-spark/">pandas on Spark</a></li>
           <li><a class="dropdown-item" href="/mllib/">MLlib (machine learning)</a></li>
           <li><a class="dropdown-item" href="/graphx/">GraphX (graph)</a></li>
           <li>
@@ -98,6 +116,20 @@
           <li><a class="dropdown-item" href="/security.html">Security</a></li>
         </ul>
       </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="github" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          GitHub
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="github">
+          <li><a class="dropdown-item" href="https://github.com/apache/spark">spark</a></li>
+          <li><a class="dropdown-item" href="https://github.com/apache/spark-connect-go">spark-connect-go</a></li>
+          <li><a class="dropdown-item" href="https://github.com/apache/spark-connect-rust">spark-connect-rust</a></li>
+          <li><a class="dropdown-item" href="https://github.com/apache/spark-connect-swift">spark-connect-swift</a></li>
+          <li><a class="dropdown-item" href="https://github.com/apache/spark-docker">spark-docker</a></li>
+          <li><a class="dropdown-item" href="https://github.com/apache/spark-kubernetes-operator">spark-kubernetes-operator</a></li>
+          <li><a class="dropdown-item" href="https://github.com/apache/spark-website">spark-website</a></li>
+        </ul>
+      </li>
     </ul>
     <ul class="navbar-nav ml-auto">
       <li class="nav-item dropdown">
@@ -111,7 +143,6 @@
           <li><a class="dropdown-item"
                  href="https://www.apache.org/foundation/sponsorship.html">Sponsorship</a></li>
           <li><a class="dropdown-item" href="https://www.apache.org/foundation/thanks.html">Thanks</a></li>
-          <li><a class="dropdown-item" href="https://www.apache.org/security/">Security</a></li>
           <li><a class="dropdown-item" href="https://www.apache.org/events/current-event">Event</a></li>
         </ul>
       </li>
@@ -121,17 +152,160 @@
 
 <div class="container">
   <div class="row mt-4">
-    <div class="col-12 col-md-9">
-      <h2>Reporting security issues</h2>
+    <div class="col-12 col-md-9" id="content">
+      
+      <h1>Security</h1>
+      
+      <p>For information on what security properties to expect from Apache Spark
+and how to configure the various security features, see the
+<a href="https://spark.apache.org/docs/latest/security.html">Spark Security</a>
+documentation.</p>
+
+<h2>Reporting security issues</h2>
 
 <p>Apache Spark uses the standard process outlined by the <a href="https://www.apache.org/security/">Apache Security Team</a>
 for reporting vulnerabilities. Note that vulnerabilities should not be publicly disclosed until the project has
 responded.</p>
 
-<p>To report a possible security vulnerability, please email <code class="language-plaintext highlighter-rouge">security@spark.apache.org</code>. This is a
-non-public list that will reach the Apache Security team, as well as the Spark PMC.</p>
+<p>Before submitting a report,
+confirm that the deployment under test is configured according to the <a href="https://spark.apache.org/docs/latest/security.html">Spark Security</a> documentation:
+Spark&#8217;s security features are opt-in,
+no deployment mode is secure by default,
+and reports against deployments that do not follow that guidance are out of scope.
+Review also the <a href="#faq">Frequently Asked Questions</a> below,
+which document behavior that is by design
+and has been reported and rejected repeatedly.</p>
+
+<p>To report a possible security vulnerability,
+please email <a href="mailto:security@apache.org?subject=%5BSECURITY%5D%20Spark"><code class="language-plaintext highlighter-rouge">security@apache.org</code></a>.
+This is the non-public list of the ASF Security Team, which will involve the Spark PMC.</p>
+
+<p>Please send one plain-text, unencrypted email per vulnerability,
+and describe the issue in the message body rather than as an image, HTML, or PDF attachment.</p>
+
+<h2 id="faq">Frequently Asked Questions</h2>
+
+<h3>During a security analysis of Apache Spark, I noticed that Spark allows for remote code execution, is this an issue?</h3>
+
+<p>No, this is not considered an issue or a vulnerability in itself, because remote code execution is fundamental 
+to Apache Spark&#8217;s design and purpose. Users can submit code in Spark jobs, 
+which will be executed unconditionally, without any attempts to limit what code can run. Starting other processes, 
+establishing network connections or accessing and modifying local files are possible. Anyone able to use a Spark
+cluster generally already has total control over the resources assigned to their Spark application by the resource
+manager (YARN, Kubernetes, etc.).</p>
+
+<p>Historically, we’ve received numerous code execution vulnerability reports, which we have rejected, as this is by design.
+Full access to the provisioned application resources is expected; it is <em>not</em> expected that a user application can
+affect resources outside of their provisioned resources from the resource manager, however.</p>
+
+<p>We strongly discourage exposing Spark clusters (including UIs and submission endpoints) directly to the public 
+internet or untrusted networks. We recommend access within trusted networks (company intranets, 
+private cloud environments), using restrict access to the Spark cluster with robust authentication, 
+authorization, and network controls.</p>
+
+<h3>I found an exploit, but it requires authentication to be disabled, is that a vulnerability?</h3>
+
+<p>No. Without authentication, anyone who can reach a Spark cluster can already submit and execute arbitrary
+code on it by design (see above), so an exploit that only works with authentication disabled demonstrates
+no additional risk. Such a deployment is inherently insecure, and reports of this kind will be rejected.
+If you believe you have found an issue that works against a cluster with authentication enabled, please
+report it.</p>
+
+<h3>I found an exploit, but it requires knowing the shared secret, is that a vulnerability?</h3>
+
+<p>No. The shared secret (<code class="language-plaintext highlighter-rouge">spark.authenticate.secret</code>) <em>is</em> the credential: anyone who knows it is already
+authenticated and can submit and execute arbitrary code on the cluster by design (see above). An exploit
+that requires knowing the secret demonstrates no access beyond what the secret already grants, and
+reports of this kind will be rejected. If you have found a way to bypass authentication or recover the
+secret without being given it (see, for example, <a href="#CVE-2021-38296">CVE-2021-38296</a>), please report it.</p>
+
+<h3 id="spark-connect-user-isolation">I found that one authenticated user can see or act on another user's session in the same driver (for example, via Spark Connect's `user_id` / `session_id`), is that a vulnerability?</h3>
+
+<p>No. Spark does not support isolating users from each other within a single driver. Anyone who holds
+a driver&#8217;s authentication credential has the same access as anyone else who holds it, including access
+to sessions, jobs, and data belonging to other holders of that same credential. This is the flip side of
+the point above: the credential is what grants access, not the identifiers layered on top of it.</p>
+
+<p>Open-source Spark Connect does not provide user isolation. The <code class="language-plaintext highlighter-rouge">user_id</code> and <code class="language-plaintext highlighter-rouge">session_id</code> fields in a
+Spark Connect request are supplied by the client and used to route a request to the right session; they
+are not an authorization boundary between different holders of the same authentication credential.
+A shared token answers &#8220;is this caller allowed to talk to this server at all,&#8221; not &#8220;which of the server&#8217;s
+users is this.&#8221; If mutually-untrusting users need isolation from each other, give each one their own
+driver, and therefore their own credential, rather than sharing one endpoint and token across them.</p>
+
+<p>Some vendors offer their own isolation or a multi-tenant version of Spark Connect on top of
+open-source Spark. Issues with a vendor&#8217;s isolation or multi-tenant version should be reported to
+that vendor. The same applies to other projects that add their own per-user isolation (for example,
+Apache Kyuubi): report those to the project.</p>
+
+<h3>Is loading a machine learning model secure? Who is responsible for model security?</h3>
+
+<p>Loading an Apache Spark ML model is equivalent to loading and executing code within the Spark runtime.</p>
+
+<p>Spark ML models might contain serialized objects, custom transformers, user-defined expressions, and execution graphs. 
+During model loading, Spark deserializes these components, reconstructs the pipeline, and instantiates runtime objects. 
+This process can invoke executable logic on the Spark driver and executors. 
+Any model, but particularly that is compromised or intentionally created with malicious intent, 
+might execute arbitrary code, access sensitive data, or compromise cluster nodes.</p>
+
+<p>End users must treat Spark ML models with the same level of caution and security scrutiny as any third-party software. 
+This includes verifying the source, validating integrity, and applying appropriate isolation and security controls 
+before loading or deploying a model.</p>
+
+<h3>Is loading a checkpoint secure?</h3>
+
+<p>No, not from an untrusted source. This applies to any kind of Spark checkpoint &#8211; RDD checkpoints,
+Spark Streaming checkpoints, and Structured Streaming checkpoints alike. A checkpoint directory holds
+serialized Spark internals: driver and operator state, and, depending on the job or query, serialized
+closures such as the functions in a DStream graph. Spark deserializes and reconstructs these when it recovers
+from a checkpoint. Recovering from a checkpoint you did not write, or whose storage location is writable
+by someone else, is equivalent to loading and executing arbitrary code within the Spark runtime, for the
+same reasons a Spark ML model is above.</p>
+
+<p>Checkpoints must be trusted: treat a checkpoint location the same way you would treat the credential
+that authenticates to the driver, restrict write access to it accordingly, and do not recover from a
+checkpoint whose provenance or integrity you cannot verify.</p>
+
+<h3>I noticed the Spark server can cause the client to execute code, is that a problem?</h3>
+
+<p>No, this is intentional. The Spark client <em>must</em> trust the server since the results that come back can be of complex types whose deserialization can execute code. The final, smaller parts of a computation sometimes run on the client or driver (depending on the deployment model). This applies to Spark Connect as well: a client must trust the server it connects to.</p>
 
 <h2>Known security issues</h2>
+
+<h3 id="CVE-2025-55039">CVE-2025-55039: Apache Spark: RPC encryption defaults to unauthenticated AES-CTR mode, enabling man-in-the-middle ciphertext modification attacks</h3>
+
+<p>Severity: Moderate</p>
+
+<p>Vendor: The Apache Software Foundation</p>
+
+<p>Versions Affected:</p>
+
+<ul>
+  <li>Versions prior to 3.4.4, 3.5.2 and 4.0.0</li>
+</ul>
+
+<p>Description:</p>
+
+<p>Apache Spark versions before 4.0.0, 3.5.2 and 3.4.4 use an insecure default network encryption cipher for RPC communication between nodes.
+When spark.network.crypto.enabled is set to true (it is set to false by default), but spark.network.crypto.cipher is not explicitly configured, Spark defaults to AES in CTR mode (AES/CTR/NoPadding), which provides encryption without authentication.
+This vulnerability allows a man-in-the-middle attacker to modify encrypted RPC traffic undetected by flipping bits in ciphertext, potentially compromising heartbeat messages or application data and affecting the integrity of Spark workflows.</p>
+
+<p>Mitigation:</p>
+
+<ul>
+  <li>Either configure <code class="language-plaintext highlighter-rouge">spark.network.crypto.cipher</code> to &#8220;AES/GCM/NoPadding&#8221; to enable authenticated encryption or enable SSL encryption by setting both <code class="language-plaintext highlighter-rouge">spark.ssl.enabled</code> and <code class="language-plaintext highlighter-rouge">spark.ssl.rpc.enabled</code> to &#8220;true&#8221;, which provides stronger transport security.</li>
+</ul>
+
+<p>Credit:</p>
+
+<ul>
+  <li>Holden Karau</li>
+</ul>
+
+<h3 id="CVE-2023-32007">CVE-2023-32007: Apache Spark shell command injection vulnerability via Spark UI</h3>
+
+<p>This CVE is only an update to <a href="#CVE-2022-33891">CVE-2022-33891</a> to clarify that version 3.1.3 is also
+affected. It is otherwise not a new vulnerability. Note that Apache Spark 3.1.x is EOL now.</p>
 
 <h3 id="CVE-2023-22946">CVE-2023-22946: Apache Spark proxy-user privilege escalation from malicious configuration class</h3>
 
@@ -207,7 +381,7 @@ the logs which would be returned in logs rendered in the UI.</p>
 <p>Versions Affected:</p>
 
 <ul>
-  <li>3.1.3 and earlier</li>
+  <li>3.1.3 and earlier (previously, this was marked as fixed in 3.1.3; this change is tracked as <a href="#CVE-2023-32007">CVE-2023-32007</a>)</li>
   <li>3.2.0 to 3.2.1</li>
 </ul>
 
@@ -388,7 +562,7 @@ than a worker, the execution of code on the master is nevertheless unexpected.</
 
 <p>Enable authentication on any Spark standalone cluster that is not otherwise secured
 from unwanted access, for example by network-level restrictions. Use <code class="language-plaintext highlighter-rouge">spark.authenticate</code>
-and related security properties described at https://spark.apache.org/docs/latest/security.html</p>
+and related security properties described at <a href="https://spark.apache.org/docs/latest/security.html">https://spark.apache.org/docs/latest/security.html</a></p>
 
 <p>Credit:</p>
 
@@ -645,17 +819,17 @@ PGh0bWw+PHNjcmlwdD5hbGVydCgiWFNTIik8L3NjcmlwdD48L2h0bWw+
         <h5>Latest News</h5>
         <ul class="list-unstyled">
           
-          <li><a href="/news/spark-3-4-0-released.html">Spark 3.4.0 released</a>
-            <span class="small">(Apr 13, 2023)</span></li>
+          <li><a href="/news/spark-4-3-0-released.html">Spark 4.3.0 released</a>
+            <span class="small">(Oct 30, 2026)</span></li>
           
-          <li><a href="/news/spark-3-2-4-released.html">Spark 3.2.4 released</a>
-            <span class="small">(Apr 13, 2023)</span></li>
+          <li><a href="/news/spark-4-2-1-released.html">Spark 4.2.1 released</a>
+            <span class="small">(Oct 27, 2026)</span></li>
           
-          <li><a href="/news/spark-3-3-2-released.html">Spark 3.3.2 released</a>
-            <span class="small">(Feb 17, 2023)</span></li>
+          <li><a href="/news/spark-4-1-4-released.html">Spark 4.1.4 released</a>
+            <span class="small">(Oct 27, 2026)</span></li>
           
-          <li><a href="/news/spark-3-2-3-released.html">Spark 3.2.3 released</a>
-            <span class="small">(Nov 28, 2022)</span></li>
+          <li><a href="/news/spark-4-0-5-released.html">Spark 4.0.5 released</a>
+            <span class="small">(Oct 27, 2026)</span></li>
           
         </ul>
         <p class="small" style="text-align: right;"><a href="/news/index.html">Archive</a></p>
@@ -696,11 +870,16 @@ PGh0bWw+PHNjcmlwdD5hbGVydCgiWFNTIik8L3NjcmlwdD48L2h0bWw+
   </footer>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/jquery.js"></script>
+<script src="/js/jquery.js"></script>
+<script src="/js/bootstrap.bundle.min.js"></script>
 <script src="/js/lang-tabs.js"></script>
 <script src="/js/downloads.js"></script>
+
+<script src="/js/vendor/anchor.min.js"></script>
+<script>
+  // Display anchor links when hovering over headings.
+  // See: https://www.bryanbraun.com/anchorjs/
+  anchors.add('#content :is(h2, h3, h4, h5, h6)');
+</script>
 </body>
 </html>
